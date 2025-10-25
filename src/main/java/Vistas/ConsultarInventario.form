@@ -28,9 +28,9 @@
                   <Component id="jScrollPane1" min="-2" pref="563" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="195" max="-2" attributes="0"/>
+                      <Component id="botonagregarIngredientes" min="-2" pref="195" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" pref="198" max="-2" attributes="0"/>
+                      <Component id="botoneliminarClientes" min="-2" pref="198" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="107" max="32767" attributes="0"/>
@@ -46,8 +46,8 @@
               <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton1" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
-                  <Component id="jButton2" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                  <Component id="botonagregarIngredientes" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                  <Component id="botoneliminarClientes" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="38" max="32767" attributes="0"/>
           </Group>
@@ -84,7 +84,7 @@
         <Property name="text" type="java.lang.String" value="INVENTARIO"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="botonagregarIngredientes">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="99" red="ff" type="rgb"/>
@@ -98,7 +98,7 @@
         <Property name="text" type="java.lang.String" value="Agregar ingredientes"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="botoneliminarClientes">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="99" red="ff" type="rgb"/>

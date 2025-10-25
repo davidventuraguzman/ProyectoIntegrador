@@ -41,15 +41,15 @@ public void mostrar (JPanel j){
 
         vista = new javax.swing.JPanel();
         Menu = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        botonRegistrarPedido = new javax.swing.JButton();
+        botonModificarPedido = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        botonEliminarPedido = new javax.swing.JButton();
+        botonRegistrarEmpleado = new javax.swing.JButton();
+        botonGestionarInventario = new javax.swing.JButton();
+        botonConsultarCliente = new javax.swing.JButton();
+        botonGenerarReporte = new javax.swing.JButton();
         muestra = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,24 +60,24 @@ public void mostrar (JPanel j){
 
         Menu.setBackground(new java.awt.Color(255, 204, 255));
 
-        jButton2.setBackground(new java.awt.Color(255, 153, 255));
-        jButton2.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Registrar pedidos");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        botonRegistrarPedido.setBackground(new java.awt.Color(255, 153, 255));
+        botonRegistrarPedido.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        botonRegistrarPedido.setForeground(new java.awt.Color(255, 255, 255));
+        botonRegistrarPedido.setText("Registrar pedidos");
+        botonRegistrarPedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botonRegistrarPedidoActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(255, 153, 255));
-        jButton3.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Modificar pedidos");
-        jButton3.setToolTipText("");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        botonModificarPedido.setBackground(new java.awt.Color(255, 153, 255));
+        botonModificarPedido.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        botonModificarPedido.setForeground(new java.awt.Color(255, 255, 255));
+        botonModificarPedido.setText("Modificar pedidos");
+        botonModificarPedido.setToolTipText("");
+        botonModificarPedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                botonModificarPedidoActionPerformed(evt);
             }
         });
 
@@ -97,53 +97,53 @@ public void mostrar (JPanel j){
         jLabel1.setFont(new java.awt.Font("Rockwell", 2, 14)); // NOI18N
         jLabel1.setText("ADMINISTRADOR");
 
-        jButton1.setBackground(new java.awt.Color(255, 153, 255));
-        jButton1.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Eliminar pedido");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonEliminarPedido.setBackground(new java.awt.Color(255, 153, 255));
+        botonEliminarPedido.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        botonEliminarPedido.setForeground(new java.awt.Color(255, 255, 255));
+        botonEliminarPedido.setText("Eliminar pedido");
+        botonEliminarPedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonEliminarPedidoActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(255, 153, 255));
-        jButton4.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Registrar Pedido");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        botonRegistrarEmpleado.setBackground(new java.awt.Color(255, 153, 255));
+        botonRegistrarEmpleado.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        botonRegistrarEmpleado.setForeground(new java.awt.Color(255, 255, 255));
+        botonRegistrarEmpleado.setText("Registrar Empleado");
+        botonRegistrarEmpleado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                botonRegistrarEmpleadoActionPerformed(evt);
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(255, 153, 255));
-        jButton5.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Gestionar inventario");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        botonGestionarInventario.setBackground(new java.awt.Color(255, 153, 255));
+        botonGestionarInventario.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        botonGestionarInventario.setForeground(new java.awt.Color(255, 255, 255));
+        botonGestionarInventario.setText("Gestionar inventario");
+        botonGestionarInventario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                botonGestionarInventarioActionPerformed(evt);
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(255, 153, 255));
-        jButton6.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Consultar clientes");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        botonConsultarCliente.setBackground(new java.awt.Color(255, 153, 255));
+        botonConsultarCliente.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        botonConsultarCliente.setForeground(new java.awt.Color(255, 255, 255));
+        botonConsultarCliente.setText("Consultar clientes");
+        botonConsultarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                botonConsultarClienteActionPerformed(evt);
             }
         });
 
-        jButton7.setBackground(new java.awt.Color(255, 153, 255));
-        jButton7.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Generar reportes");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        botonGenerarReporte.setBackground(new java.awt.Color(255, 153, 255));
+        botonGenerarReporte.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        botonGenerarReporte.setForeground(new java.awt.Color(255, 255, 255));
+        botonGenerarReporte.setText("Generar reportes");
+        botonGenerarReporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                botonGenerarReporteActionPerformed(evt);
             }
         });
 
@@ -157,25 +157,25 @@ public void mostrar (JPanel j){
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(MenuLayout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(botonRegistrarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(MenuLayout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(botonModificarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(MenuLayout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(botonEliminarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(MenuLayout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(botonRegistrarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(MenuLayout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(botonGestionarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(MenuLayout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(botonConsultarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(MenuLayout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(botonGenerarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -185,19 +185,19 @@ public void mostrar (JPanel j){
                 .addGap(11, 11, 11)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonRegistrarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonModificarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonEliminarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonRegistrarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonGestionarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonConsultarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonGenerarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -245,33 +245,33 @@ public void mostrar (JPanel j){
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void botonRegistrarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarPedidoActionPerformed
        mostrar(new RegistrarPedido());
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_botonRegistrarPedidoActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void botonModificarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarPedidoActionPerformed
         mostrar(new ModificarPedido());
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_botonModificarPedidoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botonEliminarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarPedidoActionPerformed
        mostrar(new EliminarPedido());
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botonEliminarPedidoActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void botonRegistrarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarEmpleadoActionPerformed
         mostrar(new RegistrarPedido()); 
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_botonRegistrarEmpleadoActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void botonGestionarInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGestionarInventarioActionPerformed
         mostrar(new ConsultarInventario());
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_botonGestionarInventarioActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void botonConsultarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConsultarClienteActionPerformed
        mostrar(new ConsultarCliente());
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_botonConsultarClienteActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void botonGenerarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGenerarReporteActionPerformed
         mostrar(new GenerarReportes());
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_botonGenerarReporteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,13 +279,13 @@ public void mostrar (JPanel j){
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Menu;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton botonConsultarCliente;
+    private javax.swing.JButton botonEliminarPedido;
+    private javax.swing.JButton botonGenerarReporte;
+    private javax.swing.JButton botonGestionarInventario;
+    private javax.swing.JButton botonModificarPedido;
+    private javax.swing.JButton botonRegistrarEmpleado;
+    private javax.swing.JButton botonRegistrarPedido;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel muestra;

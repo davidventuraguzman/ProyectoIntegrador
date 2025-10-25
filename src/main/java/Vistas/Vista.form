@@ -82,31 +82,31 @@
                   <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" pref="216" max="-2" attributes="0"/>
+                      <Component id="botonRegistrarPedido" min="-2" pref="216" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
-                      <Component id="jButton3" min="-2" pref="216" max="-2" attributes="0"/>
+                      <Component id="botonModificarPedido" min="-2" pref="216" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="216" max="-2" attributes="0"/>
+                      <Component id="botonEliminarPedido" min="-2" pref="216" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
-                      <Component id="jButton4" min="-2" pref="216" max="-2" attributes="0"/>
+                      <Component id="botonRegistrarEmpleado" min="-2" pref="216" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
-                      <Component id="jButton5" min="-2" pref="216" max="-2" attributes="0"/>
+                      <Component id="botonGestionarInventario" min="-2" pref="216" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
-                      <Component id="jButton6" min="-2" pref="216" max="-2" attributes="0"/>
+                      <Component id="botonConsultarCliente" min="-2" pref="216" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
-                      <Component id="jButton7" min="-2" pref="216" max="-2" attributes="0"/>
+                      <Component id="botonGenerarReporte" min="-2" pref="216" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -118,26 +118,26 @@
                       <EmptySpace min="11" pref="11" max="-2" attributes="0"/>
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" pref="49" max="-2" attributes="0"/>
+                      <Component id="botonRegistrarPedido" min="-2" pref="49" max="-2" attributes="0"/>
                       <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                      <Component id="jButton3" min="-2" pref="49" max="-2" attributes="0"/>
+                      <Component id="botonModificarPedido" min="-2" pref="49" max="-2" attributes="0"/>
                       <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="49" max="-2" attributes="0"/>
+                      <Component id="botonEliminarPedido" min="-2" pref="49" max="-2" attributes="0"/>
                       <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                      <Component id="jButton4" min="-2" pref="49" max="-2" attributes="0"/>
+                      <Component id="botonRegistrarEmpleado" min="-2" pref="49" max="-2" attributes="0"/>
                       <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                      <Component id="jButton5" min="-2" pref="49" max="-2" attributes="0"/>
+                      <Component id="botonGestionarInventario" min="-2" pref="49" max="-2" attributes="0"/>
                       <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                      <Component id="jButton6" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="botonConsultarCliente" min="-2" pref="50" max="-2" attributes="0"/>
                       <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
-                      <Component id="jButton7" min="-2" pref="49" max="-2" attributes="0"/>
+                      <Component id="botonGenerarReporte" min="-2" pref="49" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="botonRegistrarPedido">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="99" red="ff" type="rgb"/>
@@ -151,10 +151,10 @@
                 <Property name="text" type="java.lang.String" value="Registrar pedidos"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonRegistrarPedidoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton3">
+            <Component class="javax.swing.JButton" name="botonModificarPedido">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="99" red="ff" type="rgb"/>
@@ -169,7 +169,7 @@
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonModificarPedidoActionPerformed"/>
               </Events>
             </Component>
             <Container class="javax.swing.JPanel" name="jPanel1">
@@ -200,7 +200,7 @@
                 <Property name="text" type="java.lang.String" value="ADMINISTRADOR"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="botonEliminarPedido">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="99" red="ff" type="rgb"/>
@@ -214,10 +214,10 @@
                 <Property name="text" type="java.lang.String" value="Eliminar pedido"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonEliminarPedidoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton4">
+            <Component class="javax.swing.JButton" name="botonRegistrarEmpleado">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="99" red="ff" type="rgb"/>
@@ -228,13 +228,13 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Registrar Pedido"/>
+                <Property name="text" type="java.lang.String" value="Registrar Empleado"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonRegistrarEmpleadoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton5">
+            <Component class="javax.swing.JButton" name="botonGestionarInventario">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="99" red="ff" type="rgb"/>
@@ -248,10 +248,10 @@
                 <Property name="text" type="java.lang.String" value="Gestionar inventario"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonGestionarInventarioActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton6">
+            <Component class="javax.swing.JButton" name="botonConsultarCliente">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="99" red="ff" type="rgb"/>
@@ -265,10 +265,10 @@
                 <Property name="text" type="java.lang.String" value="Consultar clientes"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonConsultarClienteActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton7">
+            <Component class="javax.swing.JButton" name="botonGenerarReporte">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="99" red="ff" type="rgb"/>
@@ -282,7 +282,7 @@
                 <Property name="text" type="java.lang.String" value="Generar reportes"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton7ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botonGenerarReporteActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
