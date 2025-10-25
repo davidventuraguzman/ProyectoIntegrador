@@ -50,8 +50,8 @@ public class Dashboar extends javax.swing.JFrame {
         Fondo = new javax.swing.JPanel();
         Menu = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        botonAdmi = new javax.swing.JButton();
+        botonVentas = new javax.swing.JButton();
         Contenido = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -62,19 +62,19 @@ public class Dashboar extends javax.swing.JFrame {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo (1).png"))); // NOI18N
 
-        jButton2.setBackground(new java.awt.Color(255, 153, 255));
-        jButton2.setText("ADMINISTRADOR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        botonAdmi.setBackground(new java.awt.Color(255, 153, 255));
+        botonAdmi.setText("ADMINISTRADOR");
+        botonAdmi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                botonAdmiActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(255, 153, 255));
-        jButton3.setText("VENTAS");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        botonVentas.setBackground(new java.awt.Color(255, 153, 255));
+        botonVentas.setText("VENTAS");
+        botonVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                botonVentasActionPerformed(evt);
             }
         });
 
@@ -82,22 +82,22 @@ public class Dashboar extends javax.swing.JFrame {
         Menu.setLayout(MenuLayout);
         MenuLayout.setHorizontalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
-            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(botonAdmi, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
+            .addComponent(botonVentas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(112, 112, 112)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel6)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(63, 63, 63)
+                .addGap(21, 21, 21)
                 .addComponent(jLabel6)
-                .addGap(67, 67, 67)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(109, 109, 109)
+                .addComponent(botonAdmi, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(botonVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(150, Short.MAX_VALUE))
         );
 
@@ -144,13 +144,13 @@ public class Dashboar extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void botonAdmiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAdmiActionPerformed
         mostrar(new LoginAdmi());
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_botonAdmiActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void botonVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVentasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_botonVentasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -198,8 +198,8 @@ public class Dashboar extends javax.swing.JFrame {
     private javax.swing.JPanel Contenido;
     private javax.swing.JPanel Fondo;
     private javax.swing.JPanel Menu;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton botonAdmi;
+    private javax.swing.JButton botonVentas;
     private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
 }
