@@ -9,6 +9,6 @@ package Conexion;
  * @author LENOVO
  */
 public class BaseDatos {
-    
+    private static BaseDatos instancia;
 }
  
