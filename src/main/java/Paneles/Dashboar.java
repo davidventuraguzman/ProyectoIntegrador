@@ -4,9 +4,11 @@
  */
 package Paneles;
 
+import Conexion.Conexion;
 import Vistas.LoginAdmi;
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import java.awt.BorderLayout;
+import java.sql.Connection;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
@@ -15,13 +17,19 @@ import javax.swing.UIManager;
  * @author David
  */
 public class Dashboar extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form Dashboar
      */
     public Dashboar() {
         initComponents();
         panelPrincipal();
+       Connection con = Conexion.getConexion();
+        if (con != null) {
+            System.out.println("🎉 Conectado correctamente a MySQL!");
+        } else {
+            System.out.println("🚫 No se pudo conectar a la base de datos.");
+        }
     }
 
     private void panelPrincipal() {
