@@ -15,19 +15,39 @@ public class Empleado {
     private String nombre;
     private String apellidos;
     private String cargo;
+    private String telefono;
+    private String correo;
     private double sueldo;
     private LocalDate fechaInicio;
     private String contraseña;
     public Empleado() {
     }
 
-    public Empleado(String nombre, String apellidos, String cargo, double sueldo, LocalDate fechaInicio, String contraseña) {
+    public Empleado(String nombre, String apellidos, String cargo, String telefono, String correo, double sueldo, LocalDate fechaInicio, String contraseña) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.cargo = cargo;
+        this.telefono = telefono;
+        this.correo = correo;
         this.sueldo = sueldo;
         this.fechaInicio = fechaInicio;
         this.contraseña = contraseña;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 
     public String getContraseña() {

@@ -14,7 +14,7 @@ import Modelos.Empleado;
 
 public class EmpleadoRepositorio {
 
-   private Connection conexion;
+    private Connection conexion;
 
     public EmpleadoRepositorio() {
         conexion = Conexion.getConexion();
@@ -31,6 +31,31 @@ public class EmpleadoRepositorio {
             return rs.next(); // True si existe el registro
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean registrarEmpleado(Empleado empleado) {
+        String sql = "INSERT INTO Empleados (nombre_empleado, apellidos_empleado, telefono_empleado, correo_empleado, "
+                + "cargo_empleado, sueldo_empleado, fecha_ingreso_empleado, contraseña) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+        try (Connection con = Conexion.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setString(1, empleado.getNombre());
+            ps.setString(2, empleado.getApellidos());
+            ps.setString(3, empleado.getTelefono());
+            ps.setString(4, empleado.getCorreo());
+            ps.setString(5, empleado.getCargo());
+            ps.setDouble(6, empleado.getSueldo());
+            ps.setDate(7, java.sql.Date.valueOf(empleado.getFechaInicio()));
+            ps.setString(8, empleado.getContraseña());
+
+            int filas = ps.executeUpdate();
+            return filas > 0; // Devuelve true si se insertó correctamente
+
+        } catch (SQLException e) {
+            System.out.println("❌ Error al registrar empleado: " + e.getMessage());
             return false;
         }
     }
@@ -65,10 +90,13 @@ public class EmpleadoRepositorio {
                         rs.getString("nombre_empleado"),
                         rs.getString("apellidos_empleado"),
                         rs.getString("cargo_empleado"),
-                        rs.getDouble("sueldo_empleado"),
+                        rs.getString("telefono_empleado"), // 📞 teléfono
+                        rs.getString("correo_empleado"), // 📧 correo
+                        rs.getDouble("sueldo_empleado"), // 💰 sueldo
                         rs.getDate("fecha_ingreso_empleado").toLocalDate(),
                         rs.getString("contraseña")
                 );
+
                 lista.add(emp);
             }
         } catch (SQLException e) {
@@ -88,7 +116,9 @@ public class EmpleadoRepositorio {
                         rs.getString("nombre_empleado"),
                         rs.getString("apellidos_empleado"),
                         rs.getString("cargo_empleado"),
-                        rs.getDouble("sueldo_empleado"),
+                        rs.getString("telefono_empleado"), // 📞 teléfono
+                        rs.getString("correo_empleado"), // 📧 correo
+                        rs.getDouble("sueldo_empleado"), // 💰 sueldo
                         rs.getDate("fecha_ingreso_empleado").toLocalDate(),
                         rs.getString("contraseña")
                 );

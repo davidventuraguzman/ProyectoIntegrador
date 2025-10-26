@@ -258,7 +258,7 @@ public void mostrar (JPanel j){
     }//GEN-LAST:event_botonEliminarPedidoActionPerformed
 
     private void botonRegistrarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarEmpleadoActionPerformed
-        mostrar(new RegistrarPedido()); 
+        mostrar(new RegistrarEmpleado()); 
     }//GEN-LAST:event_botonRegistrarEmpleadoActionPerformed
 
     private void botonGestionarInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGestionarInventarioActionPerformed

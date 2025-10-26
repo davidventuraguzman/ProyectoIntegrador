@@ -4,6 +4,10 @@
  */
 package Vistas;
 
+import Conexion.EmpleadoRepositorio;
+import Modelos.Empleado;
+import java.time.LocalDate;
+
 /**
  *
  * @author David
@@ -53,10 +57,10 @@ public class RegistrarEmpleado extends javax.swing.JPanel {
         jLabel1.setText("DATOS DEL EMPLEADO");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("DNI:");
+        jLabel2.setText("Nombre:");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Nombre Completo:");
+        jLabel3.setText("Apellidos:");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Telefono:");
@@ -85,6 +89,11 @@ public class RegistrarEmpleado extends javax.swing.JPanel {
         botonRegistrarEmpleado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         botonRegistrarEmpleado.setForeground(new java.awt.Color(255, 255, 255));
         botonRegistrarEmpleado.setText("Registrar empleado");
+        botonRegistrarEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegistrarEmpleadoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -153,6 +162,35 @@ public class RegistrarEmpleado extends javax.swing.JPanel {
                 .addContainerGap(101, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonRegistrarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarEmpleadoActionPerformed
+        try {
+            String nombre = nombreEmpleado.getText();
+            String apellidos = dniEmpleado.getText(); // (tu campo parece ser "dniEmpleado", pero en tu diseño realmente almacena los apellidos)
+            String telefono = telefonoEmpleado.getText();
+            String correo = correoEmpleado.getText();
+            double sueldo = Double.parseDouble(sueldoEmpleado.getText());
+            String cargo = cargoEmpleado.getText();
+            LocalDate fechaIngreso = LocalDate.parse(fechaIngresoEmpleado.getText());
+            String contraseña = nombre.toLowerCase() + "123"; // 🔐 ejemplo automático, puedes cambiarlo
+
+            // Crear objeto Empleado
+            Empleado emp = new Empleado(nombre, apellidos, cargo, telefono, correo, sueldo, fechaIngreso, contraseña);
+
+            // Registrar en base de datos
+            EmpleadoRepositorio repo = new EmpleadoRepositorio();
+            boolean exito = repo.registrarEmpleado(emp);
+
+            if (exito) {
+                javax.swing.JOptionPane.showMessageDialog(this, "✅ Empleado registrado con éxito");
+            } else {
+                javax.swing.JOptionPane.showMessageDialog(this, "❌ Error al registrar empleado", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+            }
+
+        } catch (Exception e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "⚠️ Error: " + e.getMessage(), "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_botonRegistrarEmpleadoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
