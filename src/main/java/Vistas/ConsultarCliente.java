@@ -62,7 +62,7 @@ public class ConsultarCliente extends javax.swing.JPanel {
         botonBuscarCliente.setBackground(new java.awt.Color(255, 153, 255));
         botonBuscarCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         botonBuscarCliente.setForeground(new java.awt.Color(255, 255, 255));
-        botonBuscarCliente.setText("Buscar cliente");
+        botonBuscarCliente.setText("Buscar clienteeee");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
