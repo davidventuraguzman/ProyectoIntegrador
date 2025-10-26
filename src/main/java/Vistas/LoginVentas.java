@@ -41,13 +41,11 @@ public class LoginVentas extends javax.swing.JPanel {
         jLabel2.setText("Usuario:");
 
         jTextField1.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField1.setText("Usuario");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Contraseña");
 
         jTextField2.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField2.setText("********");
 
         jButton1.setBackground(new java.awt.Color(255, 153, 255));
         jButton1.setFont(new java.awt.Font("Rockwell", 2, 14)); // NOI18N

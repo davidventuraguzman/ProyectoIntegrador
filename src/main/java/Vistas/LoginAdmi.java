@@ -46,13 +46,11 @@ public class LoginAdmi extends javax.swing.JPanel {
         jLabel2.setText("Usuario:");
 
         usuarioCliente.setForeground(new java.awt.Color(204, 204, 204));
-        usuarioCliente.setText("Usuario");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Contraseña");
 
         contraseñaCliente.setForeground(new java.awt.Color(204, 204, 204));
-        contraseñaCliente.setText("********");
 
         jButton1.setBackground(new java.awt.Color(255, 153, 255));
         jButton1.setFont(new java.awt.Font("Rockwell", 2, 14)); // NOI18N
