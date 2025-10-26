@@ -4,6 +4,8 @@
  */
 package Vistas;
 
+import Conexion.EmpleadoRepositorio;
+import Vistas.Vista;
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 
@@ -102,16 +104,30 @@ public class LoginAdmi extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Vista vistaFrame = new Vista();
-        vistaFrame.setVisible(true);
-        vistaFrame.setLocationRelativeTo(null); // Centra la nueva ventana
+        String usuario = usuarioCliente.getText();
+        String password = contraseñaCliente.getText(); // si usas JPasswordField, sería: new String(contraseñaCliente.getPassword());
 
-        // 2. Obtener el JFrame actual (que es Dashboar) y cerrarlo
-        JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
-        if (topFrame != null) {
-            topFrame.dispose();
+        EmpleadoRepositorio cr = new EmpleadoRepositorio();
+
+        if (cr.validarLogin(usuario, password)) {
+            // Usuario correcto
+            Vista vistaFrame = new Vista();
+            vistaFrame.setVisible(true);
+            vistaFrame.setLocationRelativeTo(null); // Centra la nueva ventana
+
+            // Cerrar ventana actual
+            JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this);
+            if (topFrame != null) {
+                topFrame.dispose();
+            }
+        } else {
+            // Usuario incorrecto
+            javax.swing.JOptionPane.showMessageDialog(this, "❌ Usuario o contraseña incorrectos",
+                    "Error de Login", javax.swing.JOptionPane.ERROR_MESSAGE);
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
-}
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField contraseñaCliente;
@@ -122,4 +138,3 @@ public class LoginAdmi extends javax.swing.JPanel {
     private javax.swing.JTextField usuarioCliente;
     // End of variables declaration//GEN-END:variables
 }
-
