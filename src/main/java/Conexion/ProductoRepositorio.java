@@ -20,15 +20,16 @@ public class ProductoRepositorio {
 
     public List<Producto> listarProductos() {
         List<Producto> lista = new ArrayList<>();
-        String sql = "SELECT nombre, precio, stock, categoria FROM producto";
+        String sql = "SELECT id_producto, nombre_producto, precio_venta_producto, tipo_producto FROM Productos";
 
         try (Connection con = Conexion.getConexion(); PreparedStatement ps = con.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
                 Producto p = new Producto(
-                        rs.getString("nombre"),
-                        rs.getDouble("precio"),
-                        rs.getString("categoria")
+                        rs.getInt("id_producto"),
+                        rs.getString("nombre_producto"),
+                        rs.getDouble("precio_venta_producto"),
+                        rs.getString("tipo_producto")
                 );
                 lista.add(p);
             }
@@ -41,7 +42,7 @@ public class ProductoRepositorio {
     // Buscar productos por nombre (para el autocompletado)
     public List<Producto> buscarPorNombre(String filtro) {
         List<Producto> lista = new ArrayList<>();
-        String sql = "SELECT nombre_producto, precio_venta_producto, tipo_producto FROM Productos WHERE nombre_producto LIKE ?";
+        String sql = "SELECT id_producto, nombre_producto, precio_venta_producto, tipo_producto FROM Productos WHERE nombre_producto LIKE ?";
 
         try (Connection con = Conexion.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
 
@@ -50,6 +51,7 @@ public class ProductoRepositorio {
 
             while (rs.next()) {
                 Producto p = new Producto(
+                        rs.getInt("id_producto"), // ✅ AHORA se obtiene del resultado
                         rs.getString("nombre_producto"),
                         rs.getDouble("precio_venta_producto"),
                         rs.getString("tipo_producto")
@@ -61,5 +63,31 @@ public class ProductoRepositorio {
             System.out.println("Error en buscarPorNombre: " + e.getMessage());
         }
         return lista;
+
+    }
+
+    public Producto buscarPorId(int idProducto) {
+        Producto p = null;
+        String sql = "SELECT id_producto, nombre_producto, precio_venta_producto, tipo_producto FROM productos WHERE id_producto = ?";
+
+        try (Connection con = Conexion.getConexion(); PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, idProducto);
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                p = new Producto(
+                        rs.getInt("id_producto"),
+                        rs.getString("nombre_producto"), // ✅ corregido
+                        rs.getDouble("precio_venta_producto"), // ✅ corregido
+                        rs.getString("tipo_producto") // ✅ corregido
+                );
+            }
+
+        } catch (SQLException e) {
+            System.out.println("❌ Error al buscar producto por ID: " + e.getMessage());
+        }
+
+        return p;
     }
 }

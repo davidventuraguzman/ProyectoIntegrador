@@ -1,5 +1,7 @@
 C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Vistas\GenerarReportes.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Conexion\PedidoRepositorio.java
 C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Vistas\EliminarPedido.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Conexion\DetallePedidoRepositorio.java
 C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Vistas\ModificarPedido.java
 C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Modelos\Compra.java
 C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Modelos\Producto.java
@@ -7,8 +9,8 @@ C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java
 C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Modelos\PedidosProductos.java
 C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Vistas\RegistrarEmpleado.java
 C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Paneles\Inicio.java
-C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Modelos\PedidoEspecial.java
 C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Vistas\LoginVentas.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Modelos\DetallePedido.java
 C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Conexion\ProductoRepositorio.java
 C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Vistas\ConsultarInventario.java
 C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Modelos\Empleado.java

@@ -4,16 +4,25 @@
  */
 package Vistas;
 
+import Conexion.DetallePedidoRepositorio;
+import Conexion.PedidoRepositorio;
 import Conexion.ProductoRepositorio;
+import Modelos.DetallePedido;
+import Modelos.PedidosProductos;
 import Modelos.Producto;
+import Modelos.Venta;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,13 +30,18 @@ import javax.swing.JScrollPane;
  */
 public class RegistrarPedido extends javax.swing.JPanel {
 
+    ProductoRepositorio productoRepo;
     private DefaultListModel<String> modeloLista;
+// Lista global temporal para la venta
+    private List<Venta> carrito;
 
     public RegistrarPedido() {
         initComponents();
+        carrito = new ArrayList<>();
         popup.setFocusable(false);
         txtCantidad.setEditable(false);
-        ProductoRepositorio productoRepo = new ProductoRepositorio();
+        txtTotal.setEditable(false);
+        productoRepo = new ProductoRepositorio();
 
         // Crear la lista y el modelo
         DefaultListModel<String> modeloLista = new DefaultListModel<>();
@@ -92,13 +106,15 @@ public class RegistrarPedido extends javax.swing.JPanel {
         jLabel11 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
         txtProducto = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         txtCantidad = new javax.swing.JTextField();
         btnmenos = new javax.swing.JButton();
         btnmas = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        txtTotal = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -129,6 +145,11 @@ public class RegistrarPedido extends javax.swing.JPanel {
         botonRegistrarPedido.setBackground(new java.awt.Color(255, 153, 255));
         botonRegistrarPedido.setForeground(new java.awt.Color(255, 255, 255));
         botonRegistrarPedido.setText("REGISTRAR PEDIDO");
+        botonRegistrarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonRegistrarPedidoActionPerformed(evt);
+            }
+        });
         add(botonRegistrarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(408, 549, 248, 41));
 
         dniCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -143,10 +164,7 @@ public class RegistrarPedido extends javax.swing.JPanel {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Categoria", "Producto", "Precio", "Cantidad"
@@ -171,23 +189,23 @@ public class RegistrarPedido extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 475, 94));
 
-        jButton1.setText("ELIMINAR");
-        jButton1.setActionCommand("Agregar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnEliminar.setText("ELIMINAR");
+        btnEliminar.setActionCommand("Agregar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnEliminarActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 550, 117, -1));
+        add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 550, 117, -1));
         add(txtProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 170, 30));
 
-        jButton2.setText("Agregar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnAgregarActionPerformed(evt);
             }
         });
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, 90, 30));
+        add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, 90, 30));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("PRODUCTO");
@@ -213,19 +231,86 @@ public class RegistrarPedido extends javax.swing.JPanel {
             }
         });
         add(btnmas, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel7.setText("Monto");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 490, 50, 20));
+        add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 490, 70, 30));
     }// </editor-fold>//GEN-END:initComponents
+    private void actualizarTotal() {
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        double total = 0.0;
+
+        for (int i = 0; i < modelo.getRowCount(); i++) {
+            double precio = Double.parseDouble(modelo.getValueAt(i, 2).toString());
+            int cantidad = Integer.parseInt(modelo.getValueAt(i, 3).toString());
+            total += precio * cantidad;
+        }
+
+        txtTotal.setText(String.format("%.2f", total)); // mostrar con 2 decimales
+    }
 
     private void dniClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dniClienteActionPerformed
 
     }//GEN-LAST:event_dniClienteActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        String nombre = txtProducto.getText().trim();
+        int cantidad = Integer.parseInt(txtCantidad.getText().trim());
+
+        if (nombre.isEmpty() || cantidad <= 0) {
+            JOptionPane.showMessageDialog(this, "Selecciona un producto y cantidad válida");
+            return;
+        }
+
+        // Buscar el producto en el repositorio
+        List<Producto> encontrados = productoRepo.buscarPorNombre(nombre);
+        if (encontrados.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Producto no encontrado");
+            return;
+        }
+
+        Producto p = encontrados.get(0); // tomar el primero que coincida
+        int idEmpleado = 1; // ejemplo, lo puedes reemplazar por el usuario logeado
+        int idProducto = p.getIdProducto();
+        LocalDate fecha = LocalDate.now();
+
+        // Crear objeto Venta y agregarlo a la lista temporal
+        Venta v = new Venta(idEmpleado, idProducto, cantidad, fecha);
+        carrito.add(v);
+
+        // Mostrar en la tabla
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        boolean encontrado = false;
+
+        // Si ya existe en la tabla, actualizar la cantidad
+        for (int i = 0; i < modelo.getRowCount(); i++) {
+            String nombreFila = modelo.getValueAt(i, 1).toString(); // columna Producto (índice 1)
+            if (nombreFila.equals(p.getNombre())) {
+                int cantidadActual = Integer.parseInt(modelo.getValueAt(i, 3).toString());
+                modelo.setValueAt(cantidadActual + cantidad, i, 3);
+                encontrado = true;
+                break;
+            }
+        }
+
+        // Si no estaba, agregar nuevo
+        if (!encontrado) {
+            modelo.addRow(new Object[]{p.getCategoria(), p.getNombre(), p.getPrecio(), cantidad});
+        }
+
+        // Limpiar campos
+        txtProducto.setText("");
+        txtCantidad.setText("1");
+        txtProducto.requestFocus();
+
+        // Actualizar total general
+        actualizarTotal();
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnmasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmasActionPerformed
         int valor = Integer.parseInt(txtCantidad.getText());
@@ -241,15 +326,98 @@ public class RegistrarPedido extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnmenosActionPerformed
 
+    private void botonRegistrarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarPedidoActionPerformed
+        // Validar que haya productos en el carrito
+        if (carrito.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Agrega al menos un producto antes de registrar el pedido.");
+            return;
+        }
+
+        // Validar datos del cliente
+        String nombre = nombreCliente.getText().trim();
+        String dni = dniCliente.getText().trim();
+        if (nombre.isEmpty() || dni.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Por favor, completa los datos del cliente.");
+            return;
+        }
+
+        String textoTotal = txtTotal.getText()
+                .replace("S/", "")
+                .replace("PEN", "")
+                .replace(" ", "")
+                .trim()
+                .replace(",", "."); // reemplaza coma por punto
+
+        System.out.println("Texto total procesado: '" + textoTotal + "'"); // para depurar
+
+        double total = 0.0;
+        try {
+            total = Double.parseDouble(textoTotal);
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this,
+                    "⚠️ Error al convertir el total. Valor recibido: " + txtTotal.getText()
+                    + "\nTexto procesado: " + textoTotal);
+            return;
+        }
+        LocalDate fecha = LocalDate.now();
+
+        // 1️⃣ Crear pedido principal
+        int idCliente = 1; // (puedes cambiarlo según el cliente seleccionado o buscado)
+        PedidosProductos pedido = new PedidosProductos(idCliente, total, fecha);
+
+        PedidoRepositorio pedidoRepo = new PedidoRepositorio();
+        int idPedidoGenerado = pedidoRepo.insertarPedido(pedido);
+
+        if (idPedidoGenerado == -1) {
+            JOptionPane.showMessageDialog(this, "❌ Error al registrar el pedido principal.");
+            return;
+        }
+
+        // 2️⃣ Registrar los detalles del pedido
+        DetallePedidoRepositorio detalleRepo = new DetallePedidoRepositorio();
+        System.out.println("🛒 Productos en carrito: " + carrito.size());
+
+        for (Venta v : carrito) {
+            Producto producto = productoRepo.buscarPorId(v.getIdProducto());
+            System.out.println("➡️ Venta: " + v);
+            if (producto != null) {
+                DetallePedido detalle = new DetallePedido(
+                        idPedidoGenerado,
+                        v.getIdProducto(),
+                        v.getCantidad(),
+                        producto.getPrecio()
+                );
+                System.out.println("🧾 Insertando detalle -> PedidoID: " + idPedidoGenerado
+                        + ", ProductoID: " + v.getIdProducto()
+                        + ", Cantidad: " + v.getCantidad());
+                if (producto == null) {
+                    System.out.println("⚠️ Producto no encontrado con id: " + v.getIdProducto());
+                    continue;
+                }
+                detalleRepo.insertarDetalle(detalle);
+            }
+        }
+
+        // 3️⃣ Mostrar mensaje y limpiar interfaz
+        JOptionPane.showMessageDialog(this, "✅ Pedido registrado correctamente.");
+
+        carrito.clear();
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        modelo.setRowCount(0);
+        txtTotal.setText("");
+        txtProducto.setText("");
+        txtCantidad.setText("1");
+    }//GEN-LAST:event_botonRegistrarPedidoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonRegistrarPedido;
+    private javax.swing.JButton btnAgregar;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnmas;
     private javax.swing.JButton btnmenos;
     private javax.swing.JTextField direccionCliente;
     private javax.swing.JTextField dniCliente;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -257,6 +425,7 @@ public class RegistrarPedido extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField nombreCliente;
@@ -264,5 +433,6 @@ public class RegistrarPedido extends javax.swing.JPanel {
     private javax.swing.JTextField telefonoCliente;
     private javax.swing.JTextField txtCantidad;
     private javax.swing.JTextField txtProducto;
+    private javax.swing.JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }

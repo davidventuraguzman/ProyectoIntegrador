@@ -3,6 +3,7 @@ Modelos\Producto.class
 Modelos\ProductosIngredientes.class
 Vistas\Vista$5.class
 Vistas\RegistrarPedido$3.class
+Conexion\PedidoRepositorio.class
 Vistas\ModificarPedido$1.class
 Vistas\ConsultarCliente.class
 Modelos\Cliente.class
@@ -16,10 +17,10 @@ Vistas\RegistrarPedido$4.class
 Vistas\ConsultarInventario.class
 Modelos\PedidosProductos.class
 Vistas\LoginAdmi.class
+Conexion\DetallePedidoRepositorio.class
 Vistas\RegistrarEmpleado$1.class
 Paneles\Dashboar$2.class
 Vistas\RegistrarPedido$7.class
-Modelos\PedidoEspecial.class
 Modelos\Proveedor.class
 Vistas\LoginVentas.class
 Modelos\ProveedorIngredientes.class
@@ -35,12 +36,14 @@ Modelos\Ingrediente.class
 Paneles\Dashboar$3.class
 Vistas\Vista$4.class
 Vistas\LoginAdmi$1.class
+Vistas\RegistrarPedido$9.class
 Vistas\ModificarPedido.class
 Vistas\GenerarReportes.class
 Modelos\Empleado.class
 Vistas\Vista$1.class
 Modelos\Venta.class
 Vistas\Vista$7.class
+Modelos\DetallePedido.class
 Vistas\RegistrarPedido$2.class
 Vistas\Vista.class
 Paneles\Dashboar.class
