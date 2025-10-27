@@ -4,17 +4,25 @@
  */
 package Vistas;
 
+import Conexion.ClienteRepositorio;
+import Modelos.Cliente;
+import java.util.List;
+
 /**
  *
  * @author David
  */
 public class ConsultarCliente extends javax.swing.JPanel {
 
+    private Conexion.ClienteRepositorio repo;
+
     /**
      * Creates new form ConsultarCliente
      */
     public ConsultarCliente() {
         initComponents();
+        repo = new ClienteRepositorio();
+
     }
 
     /**
@@ -46,11 +54,29 @@ public class ConsultarCliente extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("DNI");
 
+        dnicliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dniclienteActionPerformed(evt);
+            }
+        });
+
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Nombre completo");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Telefono");
+
+        nombreCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nombreClienteActionPerformed(evt);
+            }
+        });
+
+        telefonoCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                telefonoClienteActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Pedidos");
@@ -63,6 +89,11 @@ public class ConsultarCliente extends javax.swing.JPanel {
         botonBuscarCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         botonBuscarCliente.setForeground(new java.awt.Color(255, 255, 255));
         botonBuscarCliente.setText("Buscar clienteeee");
+        botonBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonBuscarClienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -125,6 +156,59 @@ public class ConsultarCliente extends javax.swing.JPanel {
                 .addContainerGap(34, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarClienteActionPerformed
+        String dni = dnicliente.getText() != null ? dnicliente.getText().trim() : "";
+        if (dni.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Ingresa un DNI.", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        // 1) Buscar datos del cliente
+        Cliente cliente = repo.buscarPorDni(dni);
+        if (cliente == null) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Cliente no encontrado con DNI: " + dni, "No encontrado", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+            // limpiar campos
+            nombreCliente.setText("");
+            telefonoCliente.setText("");
+            pedidosCliente.setText("");
+            return;
+        }
+
+        // llenar campos
+        nombreCliente.setText(cliente.getNombre() != null ? cliente.getNombre() : "");
+        telefonoCliente.setText(cliente.getTelefono() != null ? cliente.getTelefono() : "");
+
+        // 2) obtener id_cliente y luego listar pedidos
+        Integer idCliente = repo.getIdClienteByDni(dni);
+        if (idCliente == null) {
+            pedidosCliente.setText("No se pudo obtener id_cliente.");
+            return;
+        }
+
+        List<String> pedidos = repo.listarPedidosPorClienteId(idCliente);
+        if (pedidos == null || pedidos.isEmpty()) {
+            pedidosCliente.setText("No tiene pedidos registrados.");
+        } else {
+            StringBuilder sb = new StringBuilder();
+            for (String linea : pedidos) {
+                sb.append(linea).append(System.lineSeparator());
+            }
+            pedidosCliente.setText(sb.toString());
+        }
+    }//GEN-LAST:event_botonBuscarClienteActionPerformed
+
+    private void dniclienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dniclienteActionPerformed
+
+    }//GEN-LAST:event_dniclienteActionPerformed
+
+    private void nombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreClienteActionPerformed
+
+    }//GEN-LAST:event_nombreClienteActionPerformed
+
+    private void telefonoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefonoClienteActionPerformed
+
+    }//GEN-LAST:event_telefonoClienteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

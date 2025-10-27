@@ -4,17 +4,95 @@
  */
 package Vistas;
 
+import Conexion.PedidoRepositorio;
+import Modelos.PedidosProductos;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author David
  */
 public class EliminarPedido extends javax.swing.JPanel {
 
+    private PedidoRepositorio repo;
+
     /**
      * Creates new form EliminarPedido
      */
     public EliminarPedido() {
         initComponents();
+        repo = new PedidoRepositorio();
+        cargarTabla();// carga inicial
+        cargarTablaAsync();
+    }
+
+    private void cargarTabla() {
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel(
+                new Object[]{"ID Producto", "Cantidad Producto"}, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+
+        List<PedidosProductos> lista = repo.listar();
+        if (lista != null) {
+            for (PedidosProductos pp : lista) {
+                model.addRow(new Object[]{pp.getIDproducto(), pp.getCantidad()});
+            }
+        }
+        jTable1.setModel(model);
+    }
+
+    private void cargarTablaPorPedido(int idPedido) {
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel(
+                new Object[]{"ID Producto", "Cantidad Producto"}, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+
+        List<PedidosProductos> lista = repo.listarPorPedido(idPedido);
+        if (lista != null) {
+            for (PedidosProductos pp : lista) {
+                model.addRow(new Object[]{pp.getIDproducto(), pp.getCantidad()});
+            }
+        }
+        jTable1.setModel(model);
+    }
+
+    private void cargarTablaAsync() {
+        new javax.swing.SwingWorker<Void, Void>() {
+            private javax.swing.table.DefaultTableModel model;
+
+            @Override
+            protected Void doInBackground() throws Exception {
+                model = new javax.swing.table.DefaultTableModel(new Object[]{"ID Producto", "Cantidad Producto"}, 0) {
+                    @Override
+                    public boolean isCellEditable(int row, int column) {
+                        return false;
+                    }
+                };
+                List<PedidosProductos> lista = repo.listar();
+                if (lista != null) {
+                    for (PedidosProductos pp : lista) {
+                        model.addRow(new Object[]{pp.getIDproducto(), pp.getCantidad()});
+                    }
+                }
+                return null;
+            }
+
+            @Override
+            protected void done() {
+                jTable1.setModel(model);
+            }
+        }.execute();
     }
 
     /**
@@ -35,18 +113,31 @@ public class EliminarPedido extends javax.swing.JPanel {
         botoneliminarPedido.setBackground(new java.awt.Color(255, 153, 255));
         botoneliminarPedido.setForeground(new java.awt.Color(255, 255, 255));
         botoneliminarPedido.setText("Eliminar pedido");
+        botoneliminarPedido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoneliminarPedidoActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID Producto", "Cantidad Producto"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -73,6 +164,42 @@ public class EliminarPedido extends javax.swing.JPanel {
                 .addGap(37, 37, 37))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botoneliminarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoneliminarPedidoActionPerformed
+        int fila = jTable1.getSelectedRow();
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(this, "Selecciona un producto a eliminar.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        Object value = jTable1.getValueAt(fila, 0);
+        if (value == null) {
+            JOptionPane.showMessageDialog(this, "ID del producto inválido.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        int idProducto;
+        try {
+            idProducto = Integer.parseInt(value.toString());
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "ID de producto no es número.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        int opcion = JOptionPane.showConfirmDialog(this, "¿Eliminar todas las filas con el producto ID " + idProducto + "?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
+        if (opcion != JOptionPane.YES_OPTION) {
+            return;
+        }
+
+        boolean eliminado = repo.eliminarPorProducto(idProducto);
+        if (eliminado) {
+            JOptionPane.showMessageDialog(this, "Producto(s) eliminado(s) correctamente.", "Éxito", JOptionPane.INFORMATION_MESSAGE);
+            cargarTablaAsync();
+        } else {
+            JOptionPane.showMessageDialog(this, "No se pudo eliminar. Revisa la consola y la BD.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }//GEN-LAST:event_botoneliminarPedidoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

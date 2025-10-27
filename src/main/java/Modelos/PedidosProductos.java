@@ -1,9 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelos;
 
+<<<<<<< HEAD
 import java.time.LocalDate;
 
 public class PedidosProductos {
@@ -55,4 +52,22 @@ public class PedidosProductos {
         return "Pedido [idPedido=" + idPedido + ", idCliente=" + idCliente +
                ", total=" + total + ", fechaPedido=" + fechaPedido + "]";
     }
+=======
+public class PedidosProductos {
+    private int IDproducto;
+    private int cantidad; // cantidad_pedidos_productos
+
+    public PedidosProductos() {}
+
+    public PedidosProductos(int IDproducto, int cantidad) {
+        this.IDproducto = IDproducto;
+        this.cantidad = cantidad;
+    }
+
+    public int getIDproducto() { return IDproducto; }
+    public void setIDproducto(int IDproducto) { this.IDproducto = IDproducto; }
+
+    public int getCantidad() { return cantidad; }
+    public void setCantidad(int cantidad) { this.cantidad = cantidad; }
+>>>>>>> d78abd3b82288bc9acd4a147a61ecddbfa0cdaca
 }

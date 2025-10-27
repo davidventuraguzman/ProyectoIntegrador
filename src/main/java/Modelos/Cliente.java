@@ -13,15 +13,25 @@ public class Cliente {
     private String telefono;
     private String direccion;
     private String correo;
+    private int dni;
 
     public Cliente() {
     }
 
-    public Cliente(String nombre, String telefono, String direccion, String correo) {
+    public Cliente(String nombre, String telefono, String direccion, String correo,int dni) {
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
         this.correo = correo;
+        this.dni = dni;
+    }
+
+    public int getDni() {
+        return dni;
+    }
+
+    public void setDni(int dni) {
+        this.dni = dni;
     }
 
     public String getNombre() {
