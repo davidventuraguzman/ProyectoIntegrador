@@ -1,24 +1,26 @@
-C:\Users\David\Documents\NetBeansProjects\ProyectoIntegrador\src\main\java\Conexion\Conexion.java
-C:\Users\David\Documents\NetBeansProjects\ProyectoIntegrador\src\main\java\Conexion\EmpleadoRepositorio.java
-C:\Users\David\Documents\NetBeansProjects\ProyectoIntegrador\src\main\java\Modelos\Cliente.java
-C:\Users\David\Documents\NetBeansProjects\ProyectoIntegrador\src\main\java\Modelos\Compra.java
-C:\Users\David\Documents\NetBeansProjects\ProyectoIntegrador\src\main\java\Modelos\Empleado.java
-C:\Users\David\Documents\NetBeansProjects\ProyectoIntegrador\src\main\java\Modelos\Ingrediente.java
-C:\Users\David\Documents\NetBeansProjects\ProyectoIntegrador\src\main\java\Modelos\PedidoEspecial.java
-C:\Users\David\Documents\NetBeansProjects\ProyectoIntegrador\src\main\java\Modelos\Producto.java
-C:\Users\David\Documents\NetBeansProjects\ProyectoIntegrador\src\main\java\Modelos\ProductosIngredientes.java
-C:\Users\David\Documents\NetBeansProjects\ProyectoIntegrador\src\main\java\Modelos\Proveedor.java
-C:\Users\David\Documents\NetBeansProjects\ProyectoIntegrador\src\main\java\Modelos\ProveedorIngredientes.java
-C:\Users\David\Documents\NetBeansProjects\ProyectoIntegrador\src\main\java\Modelos\Venta.java
-C:\Users\David\Documents\NetBeansProjects\ProyectoIntegrador\src\main\java\Paneles\Dashboar.java
-C:\Users\David\Documents\NetBeansProjects\ProyectoIntegrador\src\main\java\Paneles\Inicio.java
-C:\Users\David\Documents\NetBeansProjects\ProyectoIntegrador\src\main\java\Vistas\ConsultarCliente.java
-C:\Users\David\Documents\NetBeansProjects\ProyectoIntegrador\src\main\java\Vistas\ConsultarInventario.java
-C:\Users\David\Documents\NetBeansProjects\ProyectoIntegrador\src\main\java\Vistas\EliminarPedido.java
-C:\Users\David\Documents\NetBeansProjects\ProyectoIntegrador\src\main\java\Vistas\GenerarReportes.java
-C:\Users\David\Documents\NetBeansProjects\ProyectoIntegrador\src\main\java\Vistas\LoginAdmi.java
-C:\Users\David\Documents\NetBeansProjects\ProyectoIntegrador\src\main\java\Vistas\LoginVentas.java
-C:\Users\David\Documents\NetBeansProjects\ProyectoIntegrador\src\main\java\Vistas\ModificarPedido.java
-C:\Users\David\Documents\NetBeansProjects\ProyectoIntegrador\src\main\java\Vistas\RegistrarEmpleado.java
-C:\Users\David\Documents\NetBeansProjects\ProyectoIntegrador\src\main\java\Vistas\RegistrarPedido.java
-C:\Users\David\Documents\NetBeansProjects\ProyectoIntegrador\src\main\java\Vistas\Vista.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Vistas\GenerarReportes.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Vistas\EliminarPedido.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Vistas\ModificarPedido.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Modelos\Compra.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Modelos\Producto.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Modelos\Proveedor.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Modelos\PedidosProductos.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Vistas\RegistrarEmpleado.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Paneles\Inicio.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Modelos\PedidoEspecial.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Vistas\LoginVentas.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Conexion\ProductoRepositorio.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Vistas\ConsultarInventario.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Modelos\Empleado.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Modelos\Venta.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Vistas\ConsultarCliente.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Vistas\LoginAdmi.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Vistas\Vista.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Conexion\EmpleadoRepositorio.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Conexion\Conexion.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Modelos\ProductosIngredientes.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Modelos\Cliente.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Vistas\RegistrarPedido.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Modelos\Ingrediente.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Modelos\ProveedorIngredientes.java
+C:\Users\LENOVO\Documents\Ciclo 6\sistemas sof\ProyectoIntegrador2\src\main\java\Paneles\Dashboar.java
