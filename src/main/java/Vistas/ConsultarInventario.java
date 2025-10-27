@@ -4,6 +4,11 @@
  */
 package Vistas;
 
+import Conexion.ProductoRepositorio;
+import Modelos.Producto;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author David
@@ -15,6 +20,24 @@ public class ConsultarInventario extends javax.swing.JPanel {
      */
     public ConsultarInventario() {
         initComponents();
+        cargarTabla();
+    }
+
+    private void cargarTabla() {
+        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel(
+                new Object[]{"ID", "Nombre", "Precio", "Categoría"}, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+
+        ProductoRepositorio repo = new ProductoRepositorio();
+        List<Producto> lista = repo.listarProductos();
+        for (Producto p : lista) {
+            model.addRow(new Object[]{p.getIdproducto(), p.getNombre(), p.getPrecio(), p.getCategoria()});
+        }
+        jTable1.setModel(model);
     }
 
     /**
@@ -53,12 +76,22 @@ public class ConsultarInventario extends javax.swing.JPanel {
         botonagregarIngredientes.setBackground(new java.awt.Color(255, 153, 255));
         botonagregarIngredientes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         botonagregarIngredientes.setForeground(new java.awt.Color(255, 255, 255));
-        botonagregarIngredientes.setText("Agregar ingredientes");
+        botonagregarIngredientes.setText("Agregar producto");
+        botonagregarIngredientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonagregarIngredientesActionPerformed(evt);
+            }
+        });
 
         botoneliminarClientes.setBackground(new java.awt.Color(255, 153, 255));
         botoneliminarClientes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         botoneliminarClientes.setForeground(new java.awt.Color(255, 255, 255));
-        botoneliminarClientes.setText("Eliminar ingredientes");
+        botoneliminarClientes.setText("Eliminar producto");
+        botoneliminarClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botoneliminarClientesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -90,6 +123,45 @@ public class ConsultarInventario extends javax.swing.JPanel {
                 .addContainerGap(38, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonagregarIngredientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonagregarIngredientesActionPerformed
+        
+    }//GEN-LAST:event_botonagregarIngredientesActionPerformed
+
+    private void botoneliminarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoneliminarClientesActionPerformed
+        int fila = jTable1.getSelectedRow();
+        if (fila == -1) {
+            JOptionPane.showMessageDialog(this, "Selecciona un producto a eliminar.");
+            return;
+        }
+        int id = (int) jTable1.getValueAt(fila, 0);
+        ProductoRepositorio repo = new ProductoRepositorio();
+
+        int refs = repo.contarReferencias(id); // si aún tienes ese método
+        if (refs > 0) {
+            String mensaje = String.format(
+                    "Este producto tiene %d referencias en otras tablas (compras/ventas/pedidos/ingredientes).\n"
+                    + "Si borras el producto también se eliminarán esas referencias.\n\n¿Deseas continuar y eliminar todo?",
+                    refs
+            );
+            int opt = JOptionPane.showConfirmDialog(this, mensaje, "Confirmar eliminación con dependencias", JOptionPane.YES_NO_OPTION);
+            if (opt != JOptionPane.YES_OPTION) {
+                return;
+            }
+        } else {
+            if (JOptionPane.showConfirmDialog(this, "Eliminar producto ID " + id + " ?", "Confirmar", JOptionPane.YES_NO_OPTION) != JOptionPane.YES_OPTION) {
+                return;
+            }
+        }
+
+        boolean ok = repo.eliminarConDependencias(id);
+        if (ok) {
+            JOptionPane.showMessageDialog(this, "Producto y sus referencias eliminadas correctamente.");
+            cargarTabla();
+        } else {
+            JOptionPane.showMessageDialog(this, "No se pudo eliminar. Revisa la consola para más detalles.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_botoneliminarClientesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
