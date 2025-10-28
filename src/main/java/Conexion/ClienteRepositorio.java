@@ -5,6 +5,7 @@
 package Conexion;
 import Modelos.Cliente;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -60,7 +61,7 @@ public class ClienteRepositorio {
     /**
      * Devuelve el id_cliente asociado al dni, o null si no existe.
      */
-    public Integer getIdClienteByDni(String dni) {
+    public int getIdClienteByDni(String dni) {
         String sql = "SELECT id_cliente FROM cliente WHERE dni_cliente = ?";
         try (PreparedStatement ps = conn.prepareStatement(sql)) {
             ps.setString(1, dni);
@@ -73,7 +74,7 @@ public class ClienteRepositorio {
             System.err.println("Error getIdClienteByDni: " + e.getMessage());
             e.printStackTrace();
         }
-        return null;
+        return 0;
     }
 
     /**
@@ -82,31 +83,33 @@ public class ClienteRepositorio {
      */
     public List<String> listarPedidosPorClienteId(int idCliente) {
         List<String> pedidos = new ArrayList<>();
-        String sql = "SELECT id_pedidoespecial, fecha_pedidoespecial, fecha_entrega_pedidoespecial, descripcion_pedidoespecial, precio_pedidoespecial "
-                   + "FROM pedido_especial WHERE id_cliente = ? ORDER BY fecha_pedidoespecial DESC";
-        try (PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setInt(1, idCliente);
-            try (ResultSet rs = ps.executeQuery()) {
-                while (rs.next()) {
-                    int idPed = rs.getInt("id_pedidoespecial");
-                    java.sql.Date fecha = rs.getDate("fecha_pedidoespecial");
-                    java.sql.Date fechaEntrega = rs.getDate("fecha_entrega_pedidoespecial");
-                    String desc = rs.getString("descripcion_pedidoespecial");
-                    double precio = rs.getDouble("precio_pedidoespecial");
 
-                    String linea = String.format("Pedido %d — pedido: %s — entrega: %s — %s (S/. %.2f)",
-                            idPed,
-                            fecha != null ? fecha.toString() : "sin fecha",
-                            fechaEntrega != null ? fechaEntrega.toString() : "sin fecha entrega",
-                            (desc != null ? desc : ""),
-                            precio);
-                    pedidos.add(linea);
-                }
+        String sql = """
+            SELECT p.id_pedidoespecial, p.fecha_pedido, p.total
+            FROM pedidos_productos p
+            WHERE p.id_cliente = ?
+            ORDER BY p.fecha_pedido DESC
+        """;
+
+        try (Connection con = Conexion.getConexion();
+             PreparedStatement ps = con.prepareStatement(sql)) {
+
+            ps.setInt(1, idCliente);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                int idPedido = rs.getInt("id_pedidoespecial");
+                Date fecha = rs.getDate("fecha_pedido");
+                double total = rs.getDouble("total");
+
+                String linea = "Pedido N° " + idPedido + " | Fecha: " + fecha + " | Total: S/ " + total;
+                pedidos.add(linea);
             }
+
         } catch (SQLException e) {
-            System.err.println("Error listarPedidosPorClienteId: " + e.getMessage());
-            e.printStackTrace();
+            System.out.println("❌ Error al listar pedidos: " + e.getMessage());
         }
+
         return pedidos;
     }
 
@@ -128,4 +131,28 @@ public class ClienteRepositorio {
             return false;
         }
     }
+    
+    public List<Cliente> buscarPorDniParcial(String texto) {
+    List<Cliente> lista = new ArrayList<>();
+    String sql = "SELECT * FROM cliente WHERE dni_cliente LIKE ?";
+    try (Connection con = Conexion.getConexion();
+         PreparedStatement ps = con.prepareStatement(sql)) {
+
+        ps.setString(1, texto + "%");
+        ResultSet rs = ps.executeQuery();
+
+        while (rs.next()) {
+            Cliente c = new Cliente();
+            c.setNombre(rs.getString("nombre_cliente"));
+            c.setTelefono(rs.getString("telefono_cliente"));
+            c.setDireccion(rs.getString("direccion_cliente"));
+            c.setDni(rs.getInt("dni_cliente"));
+            lista.add(c);
+        }
+    } catch (SQLException e) {
+        System.out.println("❌ Error al buscar clientes por DNI parcial: " + e.getMessage());
+    }
+    return lista;
+}
+
 }

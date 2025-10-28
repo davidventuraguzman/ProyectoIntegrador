@@ -1,26 +1,54 @@
 package Modelos;
 
-<<<<<<< HEAD
 import java.time.LocalDate;
 
 public class PedidosProductos {
-    private int idPedido;
-    private int idCliente;
-    private double total;
-    private LocalDate fechaPedido;
 
-    public PedidosProductos(int idCliente, double total, LocalDate fechaPedido) {
+    private int idPedidoEspecial;       // id_pedidoespecial (PK)
+    private int idCliente;              // id_cliente
+    private int idProducto;             // id_producto (FK)
+    private double total;               // total
+    private LocalDate fechaPedido;      // fecha_pedido
+    private int cantidad;               // cantidad_pedidos_productos
+
+    // Constructor completo
+    public PedidosProductos(int idPedidoEspecial, int idCliente, int idProducto,
+            double total, LocalDate fechaPedido, int cantidad) {
+        this.idPedidoEspecial = idPedidoEspecial;
+        this.idCliente = idCliente;
+        this.idProducto = idProducto;
+        this.total = total;
+        this.fechaPedido = fechaPedido;
+        this.cantidad = cantidad;
+    }
+
+    public PedidosProductos(int idCliente, double total, LocalDate fechaPedido, int cantidad) {
         this.idCliente = idCliente;
         this.total = total;
         this.fechaPedido = fechaPedido;
+        this.cantidad=cantidad;
     }
 
-    public int getIdPedido() {
-        return idPedido;
+    public PedidosProductos() {
     }
 
-    public void setIdPedido(int idPedido) {
-        this.idPedido = idPedido;
+    // Constructor sin ID (para insertar nuevos)
+    public PedidosProductos(int idCliente, int idProducto,
+            double total, LocalDate fechaPedido, int cantidad) {
+        this.idCliente = idCliente;
+        this.idProducto = idProducto;
+        this.total = total;
+        this.fechaPedido = fechaPedido;
+        this.cantidad = cantidad;
+    }
+
+    // Getters y Setters
+    public int getIdPedidoEspecial() {
+        return idPedidoEspecial;
+    }
+
+    public void setIdPedidoEspecial(int idPedidoEspecial) {
+        this.idPedidoEspecial = idPedidoEspecial;
     }
 
     public int getIdCliente() {
@@ -29,6 +57,14 @@ public class PedidosProductos {
 
     public void setIdCliente(int idCliente) {
         this.idCliente = idCliente;
+    }
+
+    public int getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(int idProducto) {
+        this.idProducto = idProducto;
     }
 
     public double getTotal() {
@@ -47,27 +83,21 @@ public class PedidosProductos {
         this.fechaPedido = fechaPedido;
     }
 
-  
-    public String toString() {
-        return "Pedido [idPedido=" + idPedido + ", idCliente=" + idCliente +
-               ", total=" + total + ", fechaPedido=" + fechaPedido + "]";
+    public int getCantidad() {
+        return cantidad;
     }
-=======
-public class PedidosProductos {
-    private int IDproducto;
-    private int cantidad; // cantidad_pedidos_productos
 
-    public PedidosProductos() {}
-
-    public PedidosProductos(int IDproducto, int cantidad) {
-        this.IDproducto = IDproducto;
+    public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 
-    public int getIDproducto() { return IDproducto; }
-    public void setIDproducto(int IDproducto) { this.IDproducto = IDproducto; }
-
-    public int getCantidad() { return cantidad; }
-    public void setCantidad(int cantidad) { this.cantidad = cantidad; }
->>>>>>> d78abd3b82288bc9acd4a147a61ecddbfa0cdaca
+    @Override
+    public String toString() {
+        return "PedidosProductos [idPedidoEspecial=" + idPedidoEspecial
+                + ", idCliente=" + idCliente
+                + ", idProducto=" + idProducto
+                + ", total=" + total
+                + ", fechaPedido=" + fechaPedido
+                + ", cantidad=" + cantidad + "]";
+    }
 }

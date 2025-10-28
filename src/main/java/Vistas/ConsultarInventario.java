@@ -35,7 +35,7 @@ public class ConsultarInventario extends javax.swing.JPanel {
         ProductoRepositorio repo = new ProductoRepositorio();
         List<Producto> lista = repo.listarProductos();
         for (Producto p : lista) {
-            model.addRow(new Object[]{p.getIdproducto(), p.getNombre(), p.getPrecio(), p.getCategoria()});
+            model.addRow(new Object[]{p.getIdProducto(), p.getNombre(), p.getPrecio(), p.getCategoria()});
         }
         jTable1.setModel(model);
     }
@@ -52,17 +52,13 @@ public class ConsultarInventario extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        botonagregarIngredientes = new javax.swing.JButton();
         botoneliminarClientes = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
@@ -72,16 +68,6 @@ public class ConsultarInventario extends javax.swing.JPanel {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("INVENTARIO");
-
-        botonagregarIngredientes.setBackground(new java.awt.Color(255, 153, 255));
-        botonagregarIngredientes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botonagregarIngredientes.setForeground(new java.awt.Color(255, 255, 255));
-        botonagregarIngredientes.setText("Agregar producto");
-        botonagregarIngredientes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonagregarIngredientesActionPerformed(evt);
-            }
-        });
 
         botoneliminarClientes.setBackground(new java.awt.Color(255, 153, 255));
         botoneliminarClientes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -98,14 +84,14 @@ public class ConsultarInventario extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(botonagregarIngredientes, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(87, 87, 87)
+                        .addGap(60, 60, 60)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 563, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(265, 265, 265)
                         .addComponent(botoneliminarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(107, Short.MAX_VALUE))
         );
@@ -117,16 +103,10 @@ public class ConsultarInventario extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botonagregarIngredientes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botoneliminarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(botoneliminarClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(38, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void botonagregarIngredientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonagregarIngredientesActionPerformed
-        
-    }//GEN-LAST:event_botonagregarIngredientesActionPerformed
 
     private void botoneliminarClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botoneliminarClientesActionPerformed
         int fila = jTable1.getSelectedRow();
@@ -165,7 +145,6 @@ public class ConsultarInventario extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botonagregarIngredientes;
     private javax.swing.JButton botoneliminarClientes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

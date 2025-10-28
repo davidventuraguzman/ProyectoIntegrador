@@ -11,7 +11,7 @@ import java.time.LocalDate;
  * @author LENOVO
  */
 public class Empleado {
-
+    private int dni;
     private String nombre;
     private String apellidos;
     private String cargo;
@@ -23,7 +23,8 @@ public class Empleado {
     public Empleado() {
     }
 
-    public Empleado(String nombre, String apellidos, String cargo, String telefono, String correo, double sueldo, LocalDate fechaInicio, String contraseña) {
+    public Empleado(int dni, String nombre, String apellidos, String cargo, String telefono, String correo, double sueldo, LocalDate fechaInicio, String contraseña) {
+        this.dni = dni;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.cargo = cargo;
@@ -33,6 +34,15 @@ public class Empleado {
         this.fechaInicio = fechaInicio;
         this.contraseña = contraseña;
     }
+
+    public int getDni() {
+        return dni;
+    }
+
+    public void setDni(int dni) {
+        this.dni = dni;
+    }
+
 
     public String getTelefono() {
         return telefono;

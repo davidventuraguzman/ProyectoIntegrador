@@ -8,12 +8,12 @@ package Vistas;
  *
  * @author David
  */
-public class ModificarPedido extends javax.swing.JPanel {
+public class ModificarCliente extends javax.swing.JPanel {
 
     /**
      * Creates new form ModificarPedido
      */
-    public ModificarPedido() {
+    public ModificarCliente() {
         initComponents();
     }
 

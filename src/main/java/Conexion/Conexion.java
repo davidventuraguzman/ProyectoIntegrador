@@ -10,8 +10,8 @@ import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-
 public class Conexion {
+
     // Datos de conexión
     private static final String URL = "jdbc:mysql://localhost:3306/bdSugarPasteleria";
     private static final String USER = "root"; // tu usuario de MySQL
@@ -22,31 +22,17 @@ public class Conexion {
 
     // Método para obtener la conexión
     public static Connection getConexion() {
+        Connection con = null;
         try {
-            if (conexion == null || conexion.isClosed()) {
-                // Registrar el driver
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                // Crear la conexión
-                conexion = DriverManager.getConnection(URL, USER, PASSWORD);
-                System.out.println("✅ Conexión exitosa a la base de datos.");
-            }
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection(URL, USER, PASSWORD);
+            // System.out.println("✅ Conexión exitosa a la base de datos.");
         } catch (SQLException e) {
             System.out.println("❌ Error de conexión: " + e.getMessage());
         } catch (ClassNotFoundException e) {
             System.out.println("❌ No se encontró el driver de MySQL: " + e.getMessage());
         }
-        return conexion;
+        return con;
     }
 
-    // Método para cerrar la conexión
-    public static void cerrarConexion() {
-        try {
-            if (conexion != null && !conexion.isClosed()) {
-                conexion.close();
-                System.out.println("🔒 Conexión cerrada.");
-            }
-        } catch (SQLException e) {
-            System.out.println("⚠️ Error al cerrar la conexión: " + e.getMessage());
-        }
-    }
 }

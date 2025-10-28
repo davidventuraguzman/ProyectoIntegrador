@@ -4,9 +4,11 @@
  */
 package Vistas;
 
+import Conexion.ClienteRepositorio;
 import Conexion.DetallePedidoRepositorio;
 import Conexion.PedidoRepositorio;
 import Conexion.ProductoRepositorio;
+import Modelos.Cliente;
 import Modelos.DetallePedido;
 import Modelos.PedidosProductos;
 import Modelos.Producto;
@@ -21,6 +23,7 @@ import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -30,6 +33,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class RegistrarPedido extends javax.swing.JPanel {
 
+    int cantidad;
+    int cantidaAcumulada = 0;
     ProductoRepositorio productoRepo;
     private DefaultListModel<String> modeloLista;
 // Lista global temporal para la venta
@@ -42,6 +47,61 @@ public class RegistrarPedido extends javax.swing.JPanel {
         txtCantidad.setEditable(false);
         txtTotal.setEditable(false);
         productoRepo = new ProductoRepositorio();
+
+        ClienteRepositorio clienteRepo = new ClienteRepositorio();
+
+// Crear popup y modelo para sugerencias de cliente
+        DefaultListModel<String> modeloClientes = new DefaultListModel<>();
+        JList<String> listaClientes = new JList<>(modeloClientes);
+        JPopupMenu popupClientes = new JPopupMenu();
+        popupClientes.add(new JScrollPane(listaClientes));
+
+// Evento: cuando el usuario escribe en el campo DNI
+        dniCliente.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                String texto = dniCliente.getText().trim();
+                modeloClientes.clear();
+
+                if (!texto.isEmpty()) {
+                    List<Cliente> resultados = clienteRepo.buscarPorDniParcial(texto);
+                    for (Cliente c : resultados) {
+                        modeloClientes.addElement(c.getDni() + " - " + c.getNombre());
+                    }
+
+                    if (!modeloClientes.isEmpty()) {
+                        listaClientes.setSelectedIndex(0);
+                        popupClientes.show(dniCliente, 0, dniCliente.getHeight());
+                    } else {
+                        popupClientes.setVisible(false);
+                    }
+                } else {
+                    popupClientes.setVisible(false);
+                }
+            }
+        });
+
+// Evento: cuando se hace clic en una sugerencia
+        listaClientes.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    String seleccionado = listaClientes.getSelectedValue();
+                    if (seleccionado != null && seleccionado.contains(" - ")) {
+                        String dniSeleccionado = seleccionado.split(" - ")[0].trim();
+                        Cliente cliente = clienteRepo.buscarPorDni(dniSeleccionado);
+
+                        if (cliente != null) {
+                            dniCliente.setText(String.valueOf(cliente.getDni()));
+                            nombreCliente.setText(cliente.getNombre());
+                            telefonoCliente.setText(cliente.getTelefono());
+                            direccionCliente.setText(cliente.getDireccion());
+                        }
+                        popupClientes.setVisible(false);
+                    }
+                }
+            }
+        });
 
         // Crear la lista y el modelo
         DefaultListModel<String> modeloLista = new DefaultListModel<>();
@@ -125,21 +185,21 @@ public class RegistrarPedido extends javax.swing.JPanel {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Nombre Completo:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 49, 127, 34));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 127, 34));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Telefono:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 49, 97, 34));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 97, 34));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Direccion:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 149, 92, 34));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 92, 34));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("CANTIDAD");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 110, 30));
-        add(nombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 89, 240, 50));
-        add(telefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 89, 240, 50));
+        add(nombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 240, 50));
+        add(telefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 240, 50));
         add(direccionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 179, 240, 51));
 
         botonRegistrarPedido.setBackground(new java.awt.Color(255, 153, 255));
@@ -157,10 +217,10 @@ public class RegistrarPedido extends javax.swing.JPanel {
                 dniClienteActionPerformed(evt);
             }
         });
-        add(dniCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 179, 240, 51));
+        add(dniCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 240, 51));
 
         jLabel11.setText("DNI:");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 159, -1, -1));
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -187,7 +247,7 @@ public class RegistrarPedido extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 475, 94));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 475, 94));
 
         btnEliminar.setText("ELIMINAR");
         btnEliminar.setActionCommand("Agregar");
@@ -255,12 +315,46 @@ public class RegistrarPedido extends javax.swing.JPanel {
     }//GEN-LAST:event_dniClienteActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        int filaSeleccionada = jTable1.getSelectedRow();
+
+        if (filaSeleccionada == -1) {
+            JOptionPane.showMessageDialog(this, "⚠️ Selecciona un producto del carrito para eliminarlo.");
+            return;
+        }
+        int ultimaColumna = jTable1.getColumnCount() - 1;
+        Object valorUltimaColumna = jTable1.getValueAt(filaSeleccionada, ultimaColumna);
+
+        int dato = Integer.parseInt(valorUltimaColumna.toString());
+        cantidaAcumulada=cantidaAcumulada-dato;
+        int confirm = JOptionPane.showConfirmDialog(
+                this,
+                "¿Seguro que deseas eliminar este producto del pedido?",
+                "Confirmar eliminación",
+                JOptionPane.YES_NO_OPTION
+        );
+
+        if (confirm != JOptionPane.YES_OPTION) {
+            return;
+        }
+
+// 🗑️ Eliminar de la lista y la tabla
+        if (filaSeleccionada < carrito.size()) {
+            carrito.remove(filaSeleccionada);
+        }
+
+        DefaultTableModel modelo = (DefaultTableModel) jTable1.getModel();
+        modelo.removeRow(filaSeleccionada);
+
+// 🔁 Actualizar el total
+        actualizarTotal();
+
+        JOptionPane.showMessageDialog(this, "🗑️ Producto eliminado del carrito.");
 
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         String nombre = txtProducto.getText().trim();
-        int cantidad = Integer.parseInt(txtCantidad.getText().trim());
+        cantidad = Integer.parseInt(txtCantidad.getText().trim());
 
         if (nombre.isEmpty() || cantidad <= 0) {
             JOptionPane.showMessageDialog(this, "Selecciona un producto y cantidad válida");
@@ -307,7 +401,7 @@ public class RegistrarPedido extends javax.swing.JPanel {
         txtProducto.setText("");
         txtCantidad.setText("1");
         txtProducto.requestFocus();
-
+        cantidaAcumulada = cantidad + cantidaAcumulada;
         // Actualizar total general
         actualizarTotal();
     }//GEN-LAST:event_btnAgregarActionPerformed
@@ -327,15 +421,15 @@ public class RegistrarPedido extends javax.swing.JPanel {
     }//GEN-LAST:event_btnmenosActionPerformed
 
     private void botonRegistrarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarPedidoActionPerformed
-        // Validar que haya productos en el carrito
+        ClienteRepositorio clienteRepo = new ClienteRepositorio();
         if (carrito.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Agrega al menos un producto antes de registrar el pedido.");
             return;
         }
-
-        // Validar datos del cliente
+        int cantidad = Integer.parseInt(txtCantidad.getText());
         String nombre = nombreCliente.getText().trim();
         String dni = dniCliente.getText().trim();
+
         if (nombre.isEmpty() || dni.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Por favor, completa los datos del cliente.");
             return;
@@ -362,8 +456,25 @@ public class RegistrarPedido extends javax.swing.JPanel {
         LocalDate fecha = LocalDate.now();
 
         // 1️⃣ Crear pedido principal
-        int idCliente = 1; // (puedes cambiarlo según el cliente seleccionado o buscado)
-        PedidosProductos pedido = new PedidosProductos(idCliente, total, fecha);
+        int idCliente = clienteRepo.getIdClienteByDni(dni);
+
+        if (idCliente == 0) {
+            // Si no existe, insertar nuevo cliente
+            String telefono = telefonoCliente.getText().trim();
+            String direccion = direccionCliente.getText().trim();
+            String correo = ""; // puedes agregar un txtCorreoCliente si lo tienes
+
+            boolean insertado = clienteRepo.insertarCliente(nombre, dni, telefono, direccion, correo);
+            if (!insertado) {
+                JOptionPane.showMessageDialog(this, "❌ Error al registrar nuevo cliente.");
+                return;
+            }
+
+            // Obtener nuevamente el id del cliente recién insertado
+            idCliente = clienteRepo.getIdClienteByDni(dni);
+        }
+
+        PedidosProductos pedido = new PedidosProductos(idCliente, total, fecha, cantidaAcumulada);
 
         PedidoRepositorio pedidoRepo = new PedidoRepositorio();
         int idPedidoGenerado = pedidoRepo.insertarPedido(pedido);
@@ -373,7 +484,6 @@ public class RegistrarPedido extends javax.swing.JPanel {
             return;
         }
 
-        // 2️⃣ Registrar los detalles del pedido
         DetallePedidoRepositorio detalleRepo = new DetallePedidoRepositorio();
         System.out.println("🛒 Productos en carrito: " + carrito.size());
 

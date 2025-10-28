@@ -6,7 +6,15 @@ package Vistas;
 
 import Conexion.ClienteRepositorio;
 import Modelos.Cliente;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
+import javax.swing.DefaultListModel;
+import javax.swing.JList;
+import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
 
 /**
  *
@@ -22,6 +30,60 @@ public class ConsultarCliente extends javax.swing.JPanel {
     public ConsultarCliente() {
         initComponents();
         repo = new ClienteRepositorio();
+        ClienteRepositorio clienteRepo = new ClienteRepositorio();
+
+// Crear popup y modelo para sugerencias de cliente
+        DefaultListModel<String> modeloClientes = new DefaultListModel<>();
+        JList<String> listaClientes = new JList<>(modeloClientes);
+        JPopupMenu popupClientes = new JPopupMenu();
+        popupClientes.add(new JScrollPane(listaClientes));
+
+// Evento: cuando el usuario escribe en el campo DNI
+        dnicliente.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyReleased(KeyEvent e) {
+                String texto = dnicliente.getText().trim();
+                modeloClientes.clear();
+
+                if (!texto.isEmpty()) {
+                    List<Cliente> resultados = clienteRepo.buscarPorDniParcial(texto);
+                    for (Cliente c : resultados) {
+                        modeloClientes.addElement(c.getDni() + " - " + c.getNombre());
+                    }
+
+                    if (!modeloClientes.isEmpty()) {
+                        listaClientes.setSelectedIndex(0);
+                        popupClientes.show(dnicliente, 0, dnicliente.getHeight());
+                    } else {
+                        popupClientes.setVisible(false);
+                    }
+                } else {
+                    popupClientes.setVisible(false);
+                }
+            }
+        });
+
+// Evento: cuando se hace clic en una sugerencia
+        listaClientes.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 2) {
+                    String seleccionado = listaClientes.getSelectedValue();
+                    if (seleccionado != null && seleccionado.contains(" - ")) {
+                        String dniSeleccionado = seleccionado.split(" - ")[0].trim();
+                        Cliente cliente = clienteRepo.buscarPorDni(dniSeleccionado);
+
+                        if (cliente != null) {
+                            dnicliente.setText(String.valueOf(cliente.getDni()));
+                            nombreCliente.setText(cliente.getNombre());
+                            telefonoCliente.setText(cliente.getTelefono());
+                        }
+                        popupClientes.setVisible(false);
+                    }
+                }
+            }
+        });
+
 
     }
 
@@ -34,6 +96,7 @@ public class ConsultarCliente extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        popupMenu1 = new java.awt.PopupMenu();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         dnicliente = new javax.swing.JTextField();
@@ -46,44 +109,57 @@ public class ConsultarCliente extends javax.swing.JPanel {
         pedidosCliente = new javax.swing.JTextArea();
         botonBuscarCliente = new javax.swing.JButton();
 
+        popupMenu1.setLabel("popupMenu1");
+
         setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("Ingresa el DNI del cliente");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 20, 214, 44));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("DNI");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 71, 103, 36));
 
         dnicliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dniclienteActionPerformed(evt);
             }
         });
+        add(dnicliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 114, 219, 39));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Nombre completo");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 153, 44));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Telefono");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 190, 137, 44));
 
         nombreCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombreClienteActionPerformed(evt);
             }
         });
+        add(nombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 219, 41));
 
         telefonoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 telefonoClienteActionPerformed(evt);
             }
         });
+        add(telefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, 222, 41));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Pedidos");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 162, 42));
 
         pedidosCliente.setColumns(20);
         pedidosCliente.setRows(5);
         jScrollPane1.setViewportView(pedidosCliente);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 607, 210));
 
         botonBuscarCliente.setBackground(new java.awt.Color(255, 153, 255));
         botonBuscarCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -94,67 +170,7 @@ public class ConsultarCliente extends javax.swing.JPanel {
                 botonBuscarClienteActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(nombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(telefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(232, 232, 232)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(dnicliente, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(botonBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(28, 28, 28)))))
-                .addGap(86, 86, 86))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dnicliente, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(botonBuscarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(89, 89, 89)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(telefonoCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                    .addComponent(nombreCliente))
-                .addGap(53, 53, 53)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
-        );
+        add(botonBuscarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 106, 221, 47));
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarClienteActionPerformed
@@ -222,6 +238,7 @@ public class ConsultarCliente extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nombreCliente;
     private javax.swing.JTextArea pedidosCliente;
+    private java.awt.PopupMenu popupMenu1;
     private javax.swing.JTextField telefonoCliente;
     // End of variables declaration//GEN-END:variables
 }

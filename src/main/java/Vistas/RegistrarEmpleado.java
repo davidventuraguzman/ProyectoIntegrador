@@ -33,8 +33,8 @@ public class RegistrarEmpleado extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        dniEmpleado = new javax.swing.JTextField();
-        nombreEmpleado = new javax.swing.JTextField();
+        nombretxt = new javax.swing.JTextField();
+        apellidotxt = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         telefonoEmpleado = new javax.swing.JTextField();
@@ -44,46 +44,52 @@ public class RegistrarEmpleado extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         sueldoEmpleado = new javax.swing.JTextPane();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        cargoEmpleado = new javax.swing.JTextPane();
-        jLabel8 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        fechaIngresoEmpleado = new javax.swing.JTextPane();
         botonRegistrarEmpleado = new javax.swing.JButton();
+        cargoBox = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        txtDni = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setText("DATOS DEL EMPLEADO");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 13, 177, 47));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setText("Nombre:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 67, 110, 41));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Apellidos:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 67, 150, 41));
+        add(nombretxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 200, 44));
+        add(apellidotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 115, 219, 44));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Telefono:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 177, 105, 37));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("Correo:");
+        jLabel5.setText("DNI:");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 185, 166, -1));
+        add(telefonoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 200, 39));
 
         jScrollPane1.setViewportView(correoEmpleado);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 219, 39));
+
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setText("Sueldo:");
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 267, 139, 42));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel7.setText("Cargo:");
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 129, 42));
 
         jScrollPane2.setViewportView(sueldoEmpleado);
 
-        jScrollPane3.setViewportView(cargoEmpleado);
-
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel8.setText("Fecha de ingreso:");
-
-        jScrollPane4.setViewportView(fechaIngresoEmpleado);
+        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 200, 39));
 
         botonRegistrarEmpleado.setBackground(new java.awt.Color(255, 153, 255));
         botonRegistrarEmpleado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -94,88 +100,39 @@ public class RegistrarEmpleado extends javax.swing.JPanel {
                 botonRegistrarEmpleadoActionPerformed(evt);
             }
         });
+        add(botonRegistrarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 524, 219, 43));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dniEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(telefonoEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(158, 158, 158)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nombreEmpleado)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane3)
-                            .addComponent(botonRegistrarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))))
-                .addContainerGap(128, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(nombreEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                    .addComponent(dniEmpleado))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
-                    .addComponent(telefonoEmpleado))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
-                .addGap(53, 53, 53)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(botonRegistrarEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
-                    .addComponent(jScrollPane4))
-                .addContainerGap(101, Short.MAX_VALUE))
-        );
+        cargoBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mesero", "Cajero", "Almacen", "Cocinero", "Delivery", "Limpieza" }));
+        add(cargoBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(419, 316, 119, 39));
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel9.setText("Correo:");
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 166, -1));
+        add(txtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 221, 219, 39));
     }// </editor-fold>//GEN-END:initComponents
-
+private void limpiarCampos() {
+        nombretxt.setText("");
+        apellidotxt.setText("");
+        telefonoEmpleado.setText("");
+        correoEmpleado.setText("");
+        sueldoEmpleado.setText("");
+        txtDni.setText("");
+        cargoBox.setSelectedIndex(0); // vuelve al primer cargo
+    }
     private void botonRegistrarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarEmpleadoActionPerformed
         try {
-            String nombre = nombreEmpleado.getText();
-            String apellidos = dniEmpleado.getText(); // (tu campo parece ser "dniEmpleado", pero en tu diseño realmente almacena los apellidos)
+            int dni = Integer.parseInt(txtDni.getText());
+            String nombre = nombretxt.getText();
+            String apellidos = apellidotxt.getText(); // (tu campo parece ser "dniEmpleado", pero en tu diseño realmente almacena los apellidos)
             String telefono = telefonoEmpleado.getText();
             String correo = correoEmpleado.getText();
             double sueldo = Double.parseDouble(sueldoEmpleado.getText());
-            String cargo = cargoEmpleado.getText();
-            LocalDate fechaIngreso = LocalDate.parse(fechaIngresoEmpleado.getText());
+            String cargo = cargoBox.getSelectedItem().toString();
+            LocalDate fechaIngreso = LocalDate.now();
             String contraseña = nombre.toLowerCase() + "123"; // 🔐 ejemplo automático, puedes cambiarlo
 
             // Crear objeto Empleado
-            Empleado emp = new Empleado(nombre, apellidos, cargo, telefono, correo, sueldo, fechaIngreso, contraseña);
+            Empleado emp = new Empleado(dni, nombre, apellidos, cargo, telefono, correo, sueldo, fechaIngreso, contraseña);
 
             // Registrar en base de datos
             EmpleadoRepositorio repo = new EmpleadoRepositorio();
@@ -183,6 +140,7 @@ public class RegistrarEmpleado extends javax.swing.JPanel {
 
             if (exito) {
                 javax.swing.JOptionPane.showMessageDialog(this, "✅ Empleado registrado con éxito");
+                limpiarCampos();
             } else {
                 javax.swing.JOptionPane.showMessageDialog(this, "❌ Error al registrar empleado", "Error", javax.swing.JOptionPane.ERROR_MESSAGE);
             }
@@ -194,11 +152,10 @@ public class RegistrarEmpleado extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField apellidotxt;
     private javax.swing.JButton botonRegistrarEmpleado;
-    private javax.swing.JTextPane cargoEmpleado;
+    private javax.swing.JComboBox<String> cargoBox;
     private javax.swing.JTextPane correoEmpleado;
-    private javax.swing.JTextField dniEmpleado;
-    private javax.swing.JTextPane fechaIngresoEmpleado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -206,13 +163,12 @@ public class RegistrarEmpleado extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextField nombreEmpleado;
+    private javax.swing.JTextField nombretxt;
     private javax.swing.JTextPane sueldoEmpleado;
     private javax.swing.JTextField telefonoEmpleado;
+    private javax.swing.JTextField txtDni;
     // End of variables declaration//GEN-END:variables
 }

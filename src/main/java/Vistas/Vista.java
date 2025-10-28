@@ -42,7 +42,6 @@ public void mostrar (JPanel j){
         vista = new javax.swing.JPanel();
         Menu = new javax.swing.JPanel();
         botonRegistrarPedido = new javax.swing.JButton();
-        botonModificarPedido = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         botonEliminarPedido = new javax.swing.JButton();
@@ -67,17 +66,6 @@ public void mostrar (JPanel j){
         botonRegistrarPedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonRegistrarPedidoActionPerformed(evt);
-            }
-        });
-
-        botonModificarPedido.setBackground(new java.awt.Color(255, 153, 255));
-        botonModificarPedido.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
-        botonModificarPedido.setForeground(new java.awt.Color(255, 255, 255));
-        botonModificarPedido.setText("Modificar pedidos");
-        botonModificarPedido.setToolTipText("");
-        botonModificarPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botonModificarPedidoActionPerformed(evt);
             }
         });
 
@@ -151,31 +139,30 @@ public void mostrar (JPanel j){
         Menu.setLayout(MenuLayout);
         MenuLayout.setHorizontalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(120, 120, 120)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(botonRegistrarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(botonModificarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(botonEliminarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(botonRegistrarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(botonGestionarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(botonConsultarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(botonGenerarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(botonGestionarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(MenuLayout.createSequentialGroup()
+                            .addGap(120, 120, 120)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(MenuLayout.createSequentialGroup()
+                            .addGap(46, 46, 46)
+                            .addComponent(botonRegistrarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(MenuLayout.createSequentialGroup()
+                            .addGap(46, 46, 46)
+                            .addComponent(botonEliminarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(MenuLayout.createSequentialGroup()
+                            .addGap(46, 46, 46)
+                            .addComponent(botonRegistrarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(MenuLayout.createSequentialGroup()
+                            .addGap(46, 46, 46)
+                            .addComponent(botonConsultarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(MenuLayout.createSequentialGroup()
+                            .addGap(46, 46, 46)
+                            .addComponent(botonGenerarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,12 +174,10 @@ public void mostrar (JPanel j){
                 .addGap(40, 40, 40)
                 .addComponent(botonRegistrarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(botonModificarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
                 .addComponent(botonEliminarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addComponent(botonRegistrarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addComponent(botonGestionarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(botonConsultarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -249,10 +234,6 @@ public void mostrar (JPanel j){
        mostrar(new RegistrarPedido());
     }//GEN-LAST:event_botonRegistrarPedidoActionPerformed
 
-    private void botonModificarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonModificarPedidoActionPerformed
-        mostrar(new ModificarPedido());
-    }//GEN-LAST:event_botonModificarPedidoActionPerformed
-
     private void botonEliminarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarPedidoActionPerformed
        mostrar(new EliminarPedido());
     }//GEN-LAST:event_botonEliminarPedidoActionPerformed
@@ -283,7 +264,6 @@ public void mostrar (JPanel j){
     private javax.swing.JButton botonEliminarPedido;
     private javax.swing.JButton botonGenerarReporte;
     private javax.swing.JButton botonGestionarInventario;
-    private javax.swing.JButton botonModificarPedido;
     private javax.swing.JButton botonRegistrarEmpleado;
     private javax.swing.JButton botonRegistrarPedido;
     private javax.swing.JLabel jLabel1;
