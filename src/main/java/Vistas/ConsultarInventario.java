@@ -67,12 +67,13 @@ public class ConsultarInventario extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("INVENTARIO");
 
-        botoneliminarClientes.setBackground(new java.awt.Color(255, 153, 255));
-        botoneliminarClientes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botoneliminarClientes.setBackground(new java.awt.Color(255, 0, 204));
+        botoneliminarClientes.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         botoneliminarClientes.setForeground(new java.awt.Color(255, 255, 255));
-        botoneliminarClientes.setText("Eliminar producto");
+        botoneliminarClientes.setText("ELIMINAR PRODUCTO");
         botoneliminarClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botoneliminarClientesActionPerformed(evt);

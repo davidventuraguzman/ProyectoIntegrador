@@ -47,12 +47,13 @@ public class GenerarReportes extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("REPORTE DE VENTAS");
 
-        botonImprimirReporte.setBackground(new java.awt.Color(255, 153, 255));
-        botonImprimirReporte.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botonImprimirReporte.setBackground(new java.awt.Color(255, 0, 204));
+        botonImprimirReporte.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         botonImprimirReporte.setForeground(new java.awt.Color(255, 255, 255));
-        botonImprimirReporte.setText("Imprimir reporte");
+        botonImprimirReporte.setText("IMPRIMIR REPORTE");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -66,8 +67,8 @@ public class GenerarReportes extends javax.swing.JPanel {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 556, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(217, 217, 217)
-                        .addComponent(botonImprimirReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(244, 244, 244)
+                        .addComponent(botonImprimirReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(103, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

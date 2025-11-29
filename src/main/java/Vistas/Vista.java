@@ -50,6 +50,7 @@ public void mostrar (JPanel j){
         botonConsultarCliente = new javax.swing.JButton();
         botonGenerarReporte = new javax.swing.JButton();
         muestra = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -57,9 +58,9 @@ public void mostrar (JPanel j){
         vista.setBackground(new java.awt.Color(255, 255, 255));
         vista.setName(""); // NOI18N
 
-        Menu.setBackground(new java.awt.Color(255, 204, 255));
+        Menu.setBackground(new java.awt.Color(255, 153, 255));
 
-        botonRegistrarPedido.setBackground(new java.awt.Color(255, 153, 255));
+        botonRegistrarPedido.setBackground(new java.awt.Color(255, 0, 204));
         botonRegistrarPedido.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         botonRegistrarPedido.setForeground(new java.awt.Color(255, 255, 255));
         botonRegistrarPedido.setText("Registrar pedidos");
@@ -69,7 +70,7 @@ public void mostrar (JPanel j){
             }
         });
 
-        jPanel1.setBackground(new java.awt.Color(255, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 0, 204));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -82,10 +83,11 @@ public void mostrar (JPanel j){
             .addGap(0, 8, Short.MAX_VALUE)
         );
 
-        jLabel1.setFont(new java.awt.Font("Rockwell", 2, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("MS PGothic", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 204));
         jLabel1.setText("ADMINISTRADOR");
 
-        botonEliminarPedido.setBackground(new java.awt.Color(255, 153, 255));
+        botonEliminarPedido.setBackground(new java.awt.Color(255, 0, 204));
         botonEliminarPedido.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         botonEliminarPedido.setForeground(new java.awt.Color(255, 255, 255));
         botonEliminarPedido.setText("Eliminar pedido");
@@ -95,7 +97,7 @@ public void mostrar (JPanel j){
             }
         });
 
-        botonRegistrarEmpleado.setBackground(new java.awt.Color(255, 153, 255));
+        botonRegistrarEmpleado.setBackground(new java.awt.Color(255, 0, 204));
         botonRegistrarEmpleado.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         botonRegistrarEmpleado.setForeground(new java.awt.Color(255, 255, 255));
         botonRegistrarEmpleado.setText("Registrar Empleado");
@@ -105,7 +107,7 @@ public void mostrar (JPanel j){
             }
         });
 
-        botonGestionarInventario.setBackground(new java.awt.Color(255, 153, 255));
+        botonGestionarInventario.setBackground(new java.awt.Color(255, 0, 204));
         botonGestionarInventario.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         botonGestionarInventario.setForeground(new java.awt.Color(255, 255, 255));
         botonGestionarInventario.setText("Gestionar inventario");
@@ -115,7 +117,7 @@ public void mostrar (JPanel j){
             }
         });
 
-        botonConsultarCliente.setBackground(new java.awt.Color(255, 153, 255));
+        botonConsultarCliente.setBackground(new java.awt.Color(255, 0, 204));
         botonConsultarCliente.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         botonConsultarCliente.setForeground(new java.awt.Color(255, 255, 255));
         botonConsultarCliente.setText("Consultar clientes");
@@ -125,7 +127,7 @@ public void mostrar (JPanel j){
             }
         });
 
-        botonGenerarReporte.setBackground(new java.awt.Color(255, 153, 255));
+        botonGenerarReporte.setBackground(new java.awt.Color(255, 0, 204));
         botonGenerarReporte.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         botonGenerarReporte.setForeground(new java.awt.Color(255, 255, 255));
         botonGenerarReporte.setText("Generar reportes");
@@ -140,63 +142,75 @@ public void mostrar (JPanel j){
         MenuLayout.setHorizontalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89))
             .addGroup(MenuLayout.createSequentialGroup()
+                .addGap(67, 67, 67)
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(botonRegistrarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonGestionarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(MenuLayout.createSequentialGroup()
-                            .addGap(120, 120, 120)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(MenuLayout.createSequentialGroup()
-                            .addGap(46, 46, 46)
-                            .addComponent(botonRegistrarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(MenuLayout.createSequentialGroup()
-                            .addGap(46, 46, 46)
-                            .addComponent(botonEliminarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(MenuLayout.createSequentialGroup()
-                            .addGap(46, 46, 46)
-                            .addComponent(botonRegistrarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(MenuLayout.createSequentialGroup()
-                            .addGap(46, 46, 46)
-                            .addComponent(botonConsultarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(MenuLayout.createSequentialGroup()
-                            .addGap(46, 46, 46)
-                            .addComponent(botonGenerarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(botonRegistrarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botonEliminarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botonConsultarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botonGenerarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(19, 19, 19)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
-                .addComponent(botonRegistrarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(botonEliminarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(botonRegistrarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(botonGestionarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(botonConsultarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(botonGenerarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(botonRegistrarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addComponent(botonEliminarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(botonRegistrarEmpleado, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(botonGestionarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(botonConsultarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(botonGenerarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         muestra.setBackground(new java.awt.Color(255, 255, 255));
 
+        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 0, 204), 3, true));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 708, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 588, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout muestraLayout = new javax.swing.GroupLayout(muestra);
         muestra.setLayout(muestraLayout);
         muestraLayout.setHorizontalGroup(
             muestraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGroup(muestraLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         muestraLayout.setVerticalGroup(
             muestraLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(muestraLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout vistaLayout = new javax.swing.GroupLayout(vista);
@@ -268,6 +282,9 @@ public void mostrar (JPanel j){
     private javax.swing.JButton botonRegistrarPedido;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel muestra;
     private javax.swing.JPanel vista;
     // End of variables declaration//GEN-END:variables

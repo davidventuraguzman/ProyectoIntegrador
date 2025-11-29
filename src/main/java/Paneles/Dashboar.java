@@ -66,11 +66,13 @@ public class Dashboar extends javax.swing.JFrame {
 
         Fondo.setBackground(new java.awt.Color(255, 255, 255));
 
-        Menu.setBackground(new java.awt.Color(255, 204, 255));
+        Menu.setBackground(new java.awt.Color(255, 153, 255));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo (1).png"))); // NOI18N
 
-        botonAdmi.setBackground(new java.awt.Color(255, 153, 255));
+        botonAdmi.setBackground(new java.awt.Color(255, 0, 204));
+        botonAdmi.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botonAdmi.setForeground(new java.awt.Color(255, 255, 255));
         botonAdmi.setText("ADMINISTRADOR");
         botonAdmi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,7 +80,9 @@ public class Dashboar extends javax.swing.JFrame {
             }
         });
 
-        botonVentas.setBackground(new java.awt.Color(255, 153, 255));
+        botonVentas.setBackground(new java.awt.Color(255, 0, 204));
+        botonVentas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botonVentas.setForeground(new java.awt.Color(255, 255, 255));
         botonVentas.setText("VENTAS");
         botonVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,23 +94,27 @@ public class Dashboar extends javax.swing.JFrame {
         Menu.setLayout(MenuLayout);
         MenuLayout.setHorizontalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(botonAdmi, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
-            .addComponent(botonVentas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
+                .addContainerGap(25, Short.MAX_VALUE)
+                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(botonVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(botonAdmi, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35))
             .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(97, 97, 97)
+                .addGap(109, 109, 109)
                 .addComponent(jLabel6)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(63, 63, 63)
+                .addGap(62, 62, 62)
                 .addComponent(jLabel6)
-                .addGap(67, 67, 67)
-                .addComponent(botonAdmi, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(83, 83, 83)
+                .addComponent(botonAdmi, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60)
-                .addComponent(botonVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addComponent(botonVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Contenido.setBackground(new java.awt.Color(255, 255, 255));
@@ -120,7 +128,7 @@ public class Dashboar extends javax.swing.JFrame {
         );
         ContenidoLayout.setVerticalGroup(
             ContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout FondoLayout = new javax.swing.GroupLayout(Fondo);

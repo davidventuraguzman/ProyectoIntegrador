@@ -35,15 +35,19 @@ public class Inicio extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(102, 102, 102));
 
         jLabel1.setFont(new java.awt.Font("Rockwell", 2, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("¡Bienvenido(a) al "); // NOI18N
         jLabel1.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
 
         jLabel4.setFont(new java.awt.Font("Rockwell", 2, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Sistema Software");
 
         jLabel5.setFont(new java.awt.Font("Rockwell", 2, 24)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("de Sugar Pasteleria!");
 
         jLabel7.setFont(new java.awt.Font("Rockwell", 2, 14)); // NOI18N

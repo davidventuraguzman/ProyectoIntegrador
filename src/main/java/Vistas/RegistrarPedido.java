@@ -180,29 +180,35 @@ public class RegistrarPedido extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("DATOS DEL CLIENTE");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 4, 147, 38));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 147, 38));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nombre Completo:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 127, 34));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 160, 34));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Telefono:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 140, 97, 34));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Teléfono:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, 97, 34));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("Direccion:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 92, 34));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel4.setText("Dirección:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 92, 34));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("CANTIDAD");
         add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 260, 110, 30));
-        add(nombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 240, 50));
-        add(telefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 240, 50));
-        add(direccionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 179, 240, 51));
+        add(nombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 240, 40));
+        add(telefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 240, 40));
+        add(direccionCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 240, 40));
 
-        botonRegistrarPedido.setBackground(new java.awt.Color(255, 153, 255));
+        botonRegistrarPedido.setBackground(new java.awt.Color(255, 0, 204));
+        botonRegistrarPedido.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         botonRegistrarPedido.setForeground(new java.awt.Color(255, 255, 255));
         botonRegistrarPedido.setText("REGISTRAR PEDIDO");
         botonRegistrarPedido.addActionListener(new java.awt.event.ActionListener() {
@@ -210,17 +216,19 @@ public class RegistrarPedido extends javax.swing.JPanel {
                 botonRegistrarPedidoActionPerformed(evt);
             }
         });
-        add(botonRegistrarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(408, 549, 248, 41));
+        add(botonRegistrarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 540, 210, 41));
 
         dniCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dniClienteActionPerformed(evt);
             }
         });
-        add(dniCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 240, 51));
+        add(dniCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 240, 40));
 
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("DNI:");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -249,6 +257,7 @@ public class RegistrarPedido extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 370, 475, 94));
 
+        btnEliminar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnEliminar.setText("ELIMINAR");
         btnEliminar.setActionCommand("Agregar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -259,6 +268,7 @@ public class RegistrarPedido extends javax.swing.JPanel {
         add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 550, 117, -1));
         add(txtProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 300, 170, 30));
 
+        btnAgregar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -268,12 +278,13 @@ public class RegistrarPedido extends javax.swing.JPanel {
         add(btnAgregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, 90, 30));
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("PRODUCTO");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 147, 41));
 
         txtCantidad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtCantidad.setText("1");
-        add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 300, 40, 30));
+        add(txtCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 300, 40, 30));
 
         btnmenos.setText("-");
         btnmenos.setToolTipText("");
@@ -292,7 +303,8 @@ public class RegistrarPedido extends javax.swing.JPanel {
         });
         add(btnmas, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Monto");
         add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 490, 50, 20));
         add(txtTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 490, 70, 30));

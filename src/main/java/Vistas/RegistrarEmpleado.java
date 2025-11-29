@@ -53,46 +53,53 @@ public class RegistrarEmpleado extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("DATOS DEL EMPLEADO");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 13, 177, 47));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 177, 47));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nombre:");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 67, 110, 41));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 110, 41));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Apellidos:");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(355, 67, 150, 41));
-        add(nombretxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 200, 44));
-        add(apellidotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 115, 219, 44));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 150, 41));
+        add(nombretxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 200, 44));
+        add(apellidotxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 219, 40));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Telefono:");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 177, 105, 37));
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 105, 37));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("DNI:");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(343, 185, 166, -1));
-        add(telefonoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 200, 39));
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 190, 166, -1));
+        add(telefonoEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, 200, 39));
 
         jScrollPane1.setViewportView(correoEmpleado);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 219, 39));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 410, 219, 39));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Sueldo:");
-        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 267, 139, 42));
+        add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, 139, 42));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Cargo:");
-        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, 129, 42));
+        add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, 129, 42));
 
         jScrollPane2.setViewportView(sueldoEmpleado);
 
         add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 310, 200, 39));
 
-        botonRegistrarEmpleado.setBackground(new java.awt.Color(255, 153, 255));
-        botonRegistrarEmpleado.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botonRegistrarEmpleado.setBackground(new java.awt.Color(255, 0, 204));
+        botonRegistrarEmpleado.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         botonRegistrarEmpleado.setForeground(new java.awt.Color(255, 255, 255));
         botonRegistrarEmpleado.setText("Registrar empleado");
         botonRegistrarEmpleado.addActionListener(new java.awt.event.ActionListener() {
@@ -100,15 +107,16 @@ public class RegistrarEmpleado extends javax.swing.JPanel {
                 botonRegistrarEmpleadoActionPerformed(evt);
             }
         });
-        add(botonRegistrarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 524, 219, 43));
+        add(botonRegistrarEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 500, 219, 43));
 
         cargoBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mesero", "Cajero", "Almacen", "Cocinero", "Delivery", "Limpieza" }));
-        add(cargoBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(419, 316, 119, 39));
+        add(cargoBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 310, 220, 39));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Correo:");
-        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 166, -1));
-        add(txtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 221, 219, 39));
+        add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 166, -1));
+        add(txtDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 220, 219, 39));
     }// </editor-fold>//GEN-END:initComponents
 private void limpiarCampos() {
         nombretxt.setText("");

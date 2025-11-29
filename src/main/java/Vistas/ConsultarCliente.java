@@ -115,62 +115,67 @@ public class ConsultarCliente extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("Ingresa el DNI del cliente");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 20, 214, 44));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("INGRESA DNI DEL CLIENTE");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 214, 44));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("DNI");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 71, 103, 36));
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("DNI:");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 103, 36));
 
         dnicliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dniclienteActionPerformed(evt);
             }
         });
-        add(dnicliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 114, 219, 39));
+        add(dnicliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 219, 39));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Nombre completo");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 153, 44));
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setText("Nombre Completo:");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 153, 44));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel4.setText("Telefono");
-        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 190, 137, 44));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel4.setText("Teléfono:");
+        add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 180, 137, 44));
 
         nombreCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombreClienteActionPerformed(evt);
             }
         });
-        add(nombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 219, 41));
+        add(nombreCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 219, 41));
 
         telefonoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 telefonoClienteActionPerformed(evt);
             }
         });
-        add(telefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, 222, 41));
+        add(telefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, 222, 41));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel5.setText("Pedidos");
-        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 162, 42));
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel5.setText("Pedidos:");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 162, 42));
 
         pedidosCliente.setColumns(20);
         pedidosCliente.setRows(5);
         jScrollPane1.setViewportView(pedidosCliente);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 607, 210));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 620, 210));
 
-        botonBuscarCliente.setBackground(new java.awt.Color(255, 153, 255));
-        botonBuscarCliente.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botonBuscarCliente.setBackground(new java.awt.Color(255, 0, 204));
+        botonBuscarCliente.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         botonBuscarCliente.setForeground(new java.awt.Color(255, 255, 255));
-        botonBuscarCliente.setText("Buscar clienteeee");
+        botonBuscarCliente.setText("BUSCAR CLIENTE");
         botonBuscarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonBuscarClienteActionPerformed(evt);
             }
         });
-        add(botonBuscarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 106, 221, 47));
+        add(botonBuscarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, 180, 47));
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonBuscarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonBuscarClienteActionPerformed
