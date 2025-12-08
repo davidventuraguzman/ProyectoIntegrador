@@ -1,6 +1,7 @@
 package Conexion;
 
 import Modelos.PedidosProductos;
+import Modelos.Reportes;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -151,6 +152,41 @@ public class PedidoRepositorio {
             System.err.println("❌ Error en conexión: " + e.getMessage());
             return false;
         }
+    }
+
+    public List<Reportes> obtenerReportes() {
+        List<Reportes> lista = new ArrayList<>();
+
+        String sql = """
+        SELECT 
+            c.nombre_cliente AS cliente,
+            p.nombre_producto AS producto,
+            co.cantidad_compra AS cantidad,
+            p.precio_venta_producto AS precio,
+            (co.cantidad_compra * p.precio_venta_producto) AS total
+        FROM compras co
+        INNER JOIN cliente c ON co.id_cliente = c.id_cliente
+        INNER JOIN productos p ON co.id_producto = p.id_producto;
+    """;
+
+        try (Connection con = Conexion.getConexion(); PreparedStatement ps = con.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                Reportes r = new Reportes(
+                        rs.getString("cliente"),
+                        rs.getString("producto"),
+                        rs.getInt("cantidad"),
+                        rs.getDouble("precio"),
+                        rs.getDouble("total")
+                );
+                lista.add(r);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("❌ Error al obtener reportes: " + e.getMessage());
+        }
+
+        return lista;
     }
 
 }

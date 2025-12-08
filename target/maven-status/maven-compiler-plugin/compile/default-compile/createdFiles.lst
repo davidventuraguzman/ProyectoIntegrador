@@ -17,6 +17,7 @@ Vistas\ConsultarCliente$6.class
 Vistas\RegistrarPedido$10.class
 Paneles\Inicio.class
 Vistas\ModificarCliente.class
+Vistas\GenerarReportes$1.class
 Vistas\Vista$2.class
 Vistas\Vista$6.class
 Vistas\RegistrarPedido$4.class
@@ -37,6 +38,7 @@ Vistas\RegistrarPedido$11.class
 Vistas\RegistrarPedido$5.class
 Vistas\RegistrarPedido$8.class
 Conexion\Conexion.class
+Modelos\Reportes.class
 Vistas\ConsultarCliente$4.class
 Vistas\RegistrarPedido$1.class
 Vistas\EliminarPedido.class

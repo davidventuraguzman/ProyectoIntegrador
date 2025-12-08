@@ -4,6 +4,19 @@
  */
 package Vistas;
 
+import Conexion.PedidoRepositorio;
+import Modelos.Reportes;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.List;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 /**
  *
  * @author David
@@ -15,6 +28,74 @@ public class GenerarReportes extends javax.swing.JPanel {
      */
     public GenerarReportes() {
         initComponents();
+        PedidoRepositorio repo = new PedidoRepositorio();
+        List<Reportes> datos = repo.obtenerReportes();
+
+        cargarTabla(datos);
+    }
+
+    public void generarExcel(List<Reportes> lista) {
+        try {
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setDialogTitle("Guardar Reporte");
+            fileChooser.setSelectedFile(new File("ReportePedidos.xlsx"));
+
+            if (fileChooser.showSaveDialog(null) == JFileChooser.APPROVE_OPTION) {
+
+                File archivo = fileChooser.getSelectedFile();
+                Workbook workbook = new XSSFWorkbook();
+                Sheet sheet = workbook.createSheet("Reporte");
+
+                Row header = sheet.createRow(0);
+                header.createCell(0).setCellValue("Cliente");
+                header.createCell(1).setCellValue("Producto");
+                header.createCell(2).setCellValue("Cantidad");
+                header.createCell(3).setCellValue("Precio");
+                header.createCell(4).setCellValue("Total");
+
+                int fila = 1;
+
+                for (Reportes r : lista) {
+                    Row row = sheet.createRow(fila++);
+                    row.createCell(0).setCellValue(r.getCliente());
+                    row.createCell(1).setCellValue(r.getProducto());
+                    row.createCell(2).setCellValue(r.getCantidad());
+                    row.createCell(3).setCellValue(r.getPrecio());
+                    row.createCell(4).setCellValue(r.getTotal());
+                }
+
+                FileOutputStream out = new FileOutputStream(archivo);
+                workbook.write(out);
+                out.close();
+                workbook.close();
+
+                JOptionPane.showMessageDialog(null, "Reporte generado correctamente.");
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        }
+    }
+
+    public void cargarTabla(List<Reportes> lista) {
+
+        String[] columnas = {"Cliente", "Producto", "Cantidad", "Precio", "Total"};
+
+        Object[][] datos = new Object[lista.size()][5];
+
+        for (int i = 0; i < lista.size(); i++) {
+            Reportes r = lista.get(i);
+            datos[i][0] = r.getCliente();
+            datos[i][1] = r.getProducto();
+            datos[i][2] = r.getCantidad();
+            datos[i][3] = r.getPrecio();
+            datos[i][4] = r.getTotal();
+        }
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+                datos,
+                columnas
+        ));
     }
 
     /**
@@ -47,13 +128,17 @@ public class GenerarReportes extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("REPORTE DE VENTAS");
 
         botonImprimirReporte.setBackground(new java.awt.Color(255, 0, 204));
         botonImprimirReporte.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
         botonImprimirReporte.setForeground(new java.awt.Color(255, 255, 255));
         botonImprimirReporte.setText("IMPRIMIR REPORTE");
+        botonImprimirReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonImprimirReporteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -83,6 +168,20 @@ public class GenerarReportes extends javax.swing.JPanel {
                 .addContainerGap(41, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonImprimirReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonImprimirReporteActionPerformed
+        PedidoRepositorio repo = new PedidoRepositorio();
+        List<Reportes> datos = repo.obtenerReportes();
+
+        System.out.println("Tamaño de la lista: " + datos.size());
+        for (Reportes r : datos) {
+            System.out.println(r.getCliente() + " - " + r.getProducto());
+        }
+
+        generarExcel(datos);
+
+
+    }//GEN-LAST:event_botonImprimirReporteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
