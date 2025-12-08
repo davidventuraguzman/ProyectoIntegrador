@@ -6,6 +6,7 @@ package Paneles;
 
 import Conexion.Conexion;
 import Vistas.LoginAdmi;
+import Vistas.LoginVentas;
 import com.formdev.flatlaf.FlatIntelliJLaf;
 import java.awt.BorderLayout;
 import java.sql.Connection;
@@ -26,9 +27,9 @@ public class Dashboar extends javax.swing.JFrame {
         panelPrincipal();
        Connection con = Conexion.getConexion();
         if (con != null) {
-            System.out.println("🎉 Conectado correctamente a MySQL!");
+            System.out.println(" Conectado correctamente a MySQL!");
         } else {
-            System.out.println("🚫 No se pudo conectar a la base de datos.");
+            System.out.println(" No se pudo conectar a la base de datos.");
         }
     }
 
@@ -165,7 +166,7 @@ public class Dashboar extends javax.swing.JFrame {
     }//GEN-LAST:event_botonAdmiActionPerformed
 
     private void botonVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonVentasActionPerformed
-        // TODO add your handling code here:
+        mostrar(new LoginVentas());
     }//GEN-LAST:event_botonVentasActionPerformed
 
     /**

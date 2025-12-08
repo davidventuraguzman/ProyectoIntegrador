@@ -32,8 +32,8 @@
                   <Component id="jButton1" max="32767" attributes="0"/>
                   <Component id="jLabel3" min="-2" pref="112" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" pref="67" max="-2" attributes="0"/>
-                  <Component id="jTextField2" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jTextField1" alignment="0" min="-2" pref="223" max="-2" attributes="0"/>
+                  <Component id="contraseñaCliente" alignment="0" max="32767" attributes="0"/>
+                  <Component id="usuarioCliente" alignment="0" min="-2" pref="223" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="248" max="-2" attributes="0"/>
           </Group>
@@ -47,11 +47,11 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" pref="41" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTextField1" min="-2" pref="49" max="-2" attributes="0"/>
+              <Component id="usuarioCliente" min="-2" pref="49" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel3" min="-2" pref="40" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTextField2" min="-2" pref="52" max="-2" attributes="0"/>
+              <Component id="contraseñaCliente" min="-2" pref="52" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" pref="38" max="-2" attributes="0"/>
               <EmptySpace pref="94" max="32767" attributes="0"/>
@@ -78,7 +78,7 @@
         <Property name="text" type="java.lang.String" value="Usuario:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="usuarioCliente">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -96,7 +96,7 @@
         <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField2">
+    <Component class="javax.swing.JTextField" name="contrase&#xf1;aCliente">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -116,6 +116,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Iniciar Sesi&#xf3;n"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

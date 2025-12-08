@@ -20,16 +20,18 @@ public class Vista extends javax.swing.JFrame {
         initComponents();
         mostrar(new RegistrarPedido());
     }
-public void mostrar (JPanel j){
+
+    public void mostrar(JPanel j) {
         j.setSize(720, 600); // Ajusta el tamaño al del panel 'muestra'
         j.setLocation(0, 0);
-        
+
         muestra.removeAll();
-        muestra.setLayout(new BorderLayout()); 
+        muestra.setLayout(new BorderLayout());
         muestra.add(j, BorderLayout.CENTER);
         muestra.revalidate();
         muestra.repaint();
-   }
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -49,6 +51,7 @@ public void mostrar (JPanel j){
         botonGestionarInventario = new javax.swing.JButton();
         botonConsultarCliente = new javax.swing.JButton();
         botonGenerarReporte = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         muestra = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
 
@@ -137,15 +140,21 @@ public void mostrar (JPanel j){
             }
         });
 
+        jButton1.setBackground(new java.awt.Color(255, 0, 204));
+        jButton1.setFont(new java.awt.Font("Rockwell", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("Cerrar Sesión");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
         Menu.setLayout(MenuLayout);
         MenuLayout.setHorizontalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89))
             .addGroup(MenuLayout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -157,6 +166,14 @@ public void mostrar (JPanel j){
                         .addComponent(botonConsultarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(botonGenerarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MenuLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(89, 89, 89))
+            .addGroup(MenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,7 +194,9 @@ public void mostrar (JPanel j){
                 .addComponent(botonConsultarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addComponent(botonGenerarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         muestra.setBackground(new java.awt.Color(255, 255, 255));
@@ -245,15 +264,15 @@ public void mostrar (JPanel j){
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonRegistrarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarPedidoActionPerformed
-       mostrar(new RegistrarPedido());
+        mostrar(new RegistrarPedido());
     }//GEN-LAST:event_botonRegistrarPedidoActionPerformed
 
     private void botonEliminarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonEliminarPedidoActionPerformed
-       mostrar(new EliminarPedido());
+        mostrar(new EliminarPedido());
     }//GEN-LAST:event_botonEliminarPedidoActionPerformed
 
     private void botonRegistrarEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonRegistrarEmpleadoActionPerformed
-        mostrar(new RegistrarEmpleado()); 
+        mostrar(new RegistrarEmpleado());
     }//GEN-LAST:event_botonRegistrarEmpleadoActionPerformed
 
     private void botonGestionarInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGestionarInventarioActionPerformed
@@ -261,17 +280,26 @@ public void mostrar (JPanel j){
     }//GEN-LAST:event_botonGestionarInventarioActionPerformed
 
     private void botonConsultarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonConsultarClienteActionPerformed
-       mostrar(new ConsultarCliente());
+        mostrar(new ConsultarCliente());
     }//GEN-LAST:event_botonConsultarClienteActionPerformed
 
     private void botonGenerarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonGenerarReporteActionPerformed
         mostrar(new GenerarReportes());
     }//GEN-LAST:event_botonGenerarReporteActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // 1. Ocultar la ventana actual (VistaVentas)
+        this.dispose();
+
+        // 2. Crear y mostrar la ventana Dashboar (el menú principal)
+        Paneles.Dashboar dashboar = new Paneles.Dashboar();
+        dashboar.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
-  
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Menu;
     private javax.swing.JButton botonConsultarCliente;
@@ -280,10 +308,9 @@ public void mostrar (JPanel j){
     private javax.swing.JButton botonGestionarInventario;
     private javax.swing.JButton botonRegistrarEmpleado;
     private javax.swing.JButton botonRegistrarPedido;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel muestra;
     private javax.swing.JPanel vista;

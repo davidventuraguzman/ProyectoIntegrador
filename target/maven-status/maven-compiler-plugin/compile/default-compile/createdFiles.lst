@@ -11,14 +11,17 @@ Modelos\Cliente.class
 Paneles\Dashboar$1.class
 Vistas\ConsultarCliente$2.class
 Vistas\EliminarPedido$2.class
+Vistas\VistaVentas$3.class
 Conexion\ProductoRepositorio.class
 Vistas\RegistrarPedido$6.class
+Vistas\LoginVentas$1.class
 Vistas\ConsultarCliente$6.class
 Vistas\RegistrarPedido$10.class
 Paneles\Inicio.class
 Vistas\ModificarCliente.class
 Vistas\GenerarReportes$1.class
 Vistas\Vista$2.class
+Vistas\VistaVentas$4.class
 Vistas\Vista$6.class
 Vistas\RegistrarPedido$4.class
 Vistas\ConsultarInventario.class
@@ -31,8 +34,10 @@ Vistas\ConsultarCliente$3.class
 Vistas\ConsultarInventario$2.class
 Vistas\EliminarPedido$1.class
 Vistas\RegistrarPedido$7.class
+Vistas\VistaVentas.class
 Modelos\Proveedor.class
 Vistas\LoginVentas.class
+Vistas\VistaVentas$5.class
 Modelos\ProveedorIngredientes.class
 Vistas\RegistrarPedido$11.class
 Vistas\RegistrarPedido$5.class
@@ -40,6 +45,7 @@ Vistas\RegistrarPedido$8.class
 Conexion\Conexion.class
 Modelos\Reportes.class
 Vistas\ConsultarCliente$4.class
+Vistas\VistaVentas$1.class
 Vistas\RegistrarPedido$1.class
 Vistas\EliminarPedido.class
 Vistas\RegistrarPedido.class
@@ -56,7 +62,9 @@ Vistas\GenerarReportes.class
 Modelos\Empleado.class
 Vistas\Vista$1.class
 Vistas\ConsultarInventario$1.class
+Vistas\VistaVentas$2.class
 Modelos\Venta.class
+Vistas\Vista$7.class
 Modelos\DetallePedido.class
 Vistas\RegistrarPedido$2.class
 Vistas\Vista.class
