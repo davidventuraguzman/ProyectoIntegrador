@@ -4,9 +4,11 @@ import Modelos.Producto;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class ProductoRepositorio {
-
+    private static final Logger logger = LoggerFactory.getLogger(ProductoRepositorio.class);
     // 📦 Listar todos los productos
     public List<Producto> listarProductos() {
         List<Producto> lista = new ArrayList<>();
@@ -27,7 +29,7 @@ public class ProductoRepositorio {
             }
 
         } catch (SQLException e) {
-            System.err.println("Error al listar productos: " + e.getMessage());
+               logger.error("❌ Error al listar productos: {}", e.getMessage(), e);
         }
         return lista;
     }
@@ -55,7 +57,7 @@ public class ProductoRepositorio {
             }
 
         } catch (SQLException e) {
-            System.err.println("Error en buscarPorNombre: " + e.getMessage());
+               logger.error("❌ Error en buscarPorNombre: {}", e.getMessage(), e);
         }
         return lista;
     }
@@ -82,7 +84,7 @@ public class ProductoRepositorio {
             }
 
         } catch (SQLException e) {
-            System.out.println("❌ Error al buscar producto por ID: " + e.getMessage());
+            logger.error("❌ Error al buscar producto por ID: {}", e.getMessage(), e);
         }
 
         return p;
@@ -101,7 +103,7 @@ public class ProductoRepositorio {
             return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
-            System.err.println("Error al insertar producto: " + e.getMessage());
+            logger.error("❌ Error al insertar producto: {}", e.getMessage(), e);
             return false;
         }
     }
@@ -116,7 +118,7 @@ public class ProductoRepositorio {
             return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
-            System.err.println("Error al eliminar producto: " + e.getMessage());
+            logger.error("❌ Error al eliminar producto {}", e.getMessage(), e);
             return false;
         }
     }
@@ -147,11 +149,11 @@ public class ProductoRepositorio {
             return true;
 
         } catch (SQLException e) {
-            System.err.println("Error en eliminarConDependencias: " + e.getMessage());
+            logger.error("❌ Error en eliminarConDependencias: {}", e.getMessage(), e);
             try {
                 if (con != null) con.rollback();
             } catch (SQLException ex) {
-                System.err.println("Error en rollback: " + ex.getMessage());
+                logger.error("❌ Error en rollback: {}", ex.getMessage(), ex);
             }
             return false;
 
@@ -161,7 +163,7 @@ public class ProductoRepositorio {
                     con.setAutoCommit(true);
                     con.close();
                 } catch (SQLException e) {
-                    System.err.println("Error al cerrar conexión: " + e.getMessage());
+                    logger.error("❌ Error al cerrar conexión: {}", e.getMessage(), e);
                 }
             }
         }
@@ -183,7 +185,7 @@ public class ProductoRepositorio {
                 }
             }
         } catch (SQLException e) {
-            System.err.println("Error en contarReferencias: " + e.getMessage());
+            logger.error("❌ Error en contarReferencias: {}", e.getMessage(), e);
         }
         return total;
     }

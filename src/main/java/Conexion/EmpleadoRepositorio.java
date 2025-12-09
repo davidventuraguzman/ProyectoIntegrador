@@ -5,15 +5,12 @@
 package Conexion;
 
 import java.sql.*;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 import Modelos.Empleado;
-import Conexion.Conexion;
-import Modelos.Empleado;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class EmpleadoRepositorio {
-
+    private static final Logger logger = LoggerFactory.getLogger(EmpleadoRepositorio.class);
     private Connection conexion;
 
     public EmpleadoRepositorio() {
@@ -30,7 +27,7 @@ public class EmpleadoRepositorio {
             ResultSet rs = ps.executeQuery();
             return rs.next(); // True si existe el registro
         } catch (SQLException e) {
-            e.printStackTrace();
+            logger.error("❌ Error validarLogin: {}", e.getMessage(), e);
             return false;
         }
     }
@@ -56,7 +53,7 @@ public class EmpleadoRepositorio {
             return filas > 0; // Devuelve true si se insertó correctamente
 
         } catch (SQLException e) {
-            System.out.println("❌ Error al registrar empleado: " + e.getMessage());
+            logger.error("❌ Error al registrar empleado: {}", e.getMessage(), e);
             return false;
         }
     }

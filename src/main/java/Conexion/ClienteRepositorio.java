@@ -11,17 +11,24 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  *
  * @author David
  */
 public class ClienteRepositorio {
      private final Connection conn;
+    private static final Logger logger = LoggerFactory.getLogger(ClienteRepositorio.class);
+
 
     public ClienteRepositorio() {
         conn = Conexion.getConexion();
     }
-
+    public ClienteRepositorio(Connection conn) {
+        this.conn = conn;
+    }
     /**
      * Busca un cliente por su DNI (dni_cliente en la BD).
      * Retorna null si no existe.
@@ -52,7 +59,7 @@ public class ClienteRepositorio {
                 }
             }
         } catch (SQLException e) {
-            System.err.println("Error buscarPorDni: " + e.getMessage());
+           logger.error("Error buscarPorDni: {}", e.getMessage(), e);
             e.printStackTrace();
         }
         return null;
@@ -71,7 +78,7 @@ public class ClienteRepositorio {
                 }
             }
         } catch (SQLException e) {
-            System.err.println("Error getIdClienteByDni: " + e.getMessage());
+            logger.error("Error getIdClienteByDni: {}", e.getMessage(), e);
             e.printStackTrace();
         }
         return 0;
@@ -107,7 +114,8 @@ public class ClienteRepositorio {
             }
 
         } catch (SQLException e) {
-            System.out.println("❌ Error al listar pedidos: " + e.getMessage());
+            logger.error("❌ Error al listar pedidos: {}", e.getMessage(), e);
+
         }
 
         return pedidos;
@@ -126,7 +134,7 @@ public class ClienteRepositorio {
             int filas = ps.executeUpdate();
             return filas > 0;
         } catch (SQLException e) {
-            System.err.println("Error insertarCliente: " + e.getMessage());
+            logger.error("Error insertarCliente: {}", e.getMessage(), e);
             e.printStackTrace();
             return false;
         }
@@ -150,7 +158,8 @@ public class ClienteRepositorio {
             lista.add(c);
         }
     } catch (SQLException e) {
-        System.out.println("❌ Error al buscar clientes por DNI parcial: " + e.getMessage());
+        logger.error("❌ Error al buscar clientes por DNI parcial:", e.getMessage(), e);
+
     }
     return lista;
 }

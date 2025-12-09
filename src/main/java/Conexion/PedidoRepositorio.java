@@ -5,9 +5,12 @@ import Modelos.Reportes;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 public class PedidoRepositorio {
-
+    private static final Logger logger = LoggerFactory.getLogger(PedidoRepositorio.class);
     // ✅ Inserta un pedido y devuelve el ID autogenerado
     public int insertarPedido(PedidosProductos pedido) {
         String sql = "INSERT INTO pedidos_productos (id_cliente, id_producto, total, fecha_pedido, cantidad_pedidos_productos) VALUES (?, ?, ?, ?, ?)";
@@ -33,11 +36,13 @@ public class PedidoRepositorio {
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
                 idGenerado = rs.getInt(1);
-                System.out.println("✅ Pedido insertado con ID: " + idGenerado);
+                logger.info("✅ Pedido insertado con ID: {}", idGenerado);
+
+                
             }
 
         } catch (SQLException e) {
-            System.out.println("❌ Error al insertar pedido: " + e.getMessage());
+            logger.error("❌ Error al insertar pedido: {}", e.getMessage(), e);
         }
 
         return idGenerado;
@@ -63,7 +68,7 @@ public class PedidoRepositorio {
             }
 
         } catch (SQLException e) {
-            System.out.println("❌ Error al listar pedidos: " + e.getMessage());
+            logger.error("❌ Error al listar pedidos: {}", e.getMessage(), e);
         }
 
         return lista;
@@ -92,7 +97,7 @@ public class PedidoRepositorio {
             }
 
         } catch (SQLException e) {
-            System.out.println("❌ Error al listar pedidos por cliente: " + e.getMessage());
+             logger.error("❌ Error al listar pedidos por cliente: {}", e.getMessage(), e);
         }
 
         return lista;
@@ -117,7 +122,7 @@ public class PedidoRepositorio {
             }
 
         } catch (SQLException e) {
-            System.err.println("❌ Error al listar pedidos: " + e.getMessage());
+             logger.error("❌ Error al listar pedidos:  {}", e.getMessage(), e);
         }
 
         return lista;
@@ -144,12 +149,12 @@ public class PedidoRepositorio {
 
             } catch (SQLException e) {
                 con.rollback();
-                System.err.println("❌ Error al eliminar pedido: " + e.getMessage());
+         logger.error("❌ Error al eliminar pedido:  {}", e.getMessage(), e);
                 return false;
             }
 
         } catch (SQLException e) {
-            System.err.println("❌ Error en conexión: " + e.getMessage());
+           logger.error("❌ Error conexion EliminarPedido{}", e.getMessage(), e);
             return false;
         }
     }
@@ -183,7 +188,7 @@ public class PedidoRepositorio {
             }
 
         } catch (SQLException e) {
-            System.out.println("❌ Error al obtener reportes: " + e.getMessage());
+             logger.error("❌ Error al obtener reportes:{}", e.getMessage(), e);
         }
 
         return lista;

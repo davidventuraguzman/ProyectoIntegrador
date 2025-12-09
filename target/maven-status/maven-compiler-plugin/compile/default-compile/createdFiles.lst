@@ -37,7 +37,6 @@ Vistas\RegistrarPedido$7.class
 Vistas\VistaVentas.class
 Modelos\Proveedor.class
 Vistas\LoginVentas.class
-Vistas\VistaVentas$5.class
 Modelos\ProveedorIngredientes.class
 Vistas\RegistrarPedido$11.class
 Vistas\RegistrarPedido$5.class
@@ -52,7 +51,6 @@ Vistas\RegistrarPedido.class
 Vistas\Vista$3.class
 Conexion\EmpleadoRepositorio.class
 Modelos\Ingrediente.class
-Paneles\Dashboar$3.class
 Vistas\Vista$4.class
 Vistas\LoginAdmi$1.class
 Vistas\RegistrarPedido$9.class

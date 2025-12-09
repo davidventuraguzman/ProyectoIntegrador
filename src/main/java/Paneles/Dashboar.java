@@ -12,32 +12,37 @@ import java.awt.BorderLayout;
 import java.sql.Connection;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-/**
- *
- * @author David
- */
 public class Dashboar extends javax.swing.JFrame {
-    
+
+    private static final Logger log = LoggerFactory.getLogger(Dashboar.class);
+
     /**
      * Creates new form Dashboar
      */
     public Dashboar() {
         initComponents();
         panelPrincipal();
-       Connection con = Conexion.getConexion();
+        Connection con = Conexion.getConexion();
+        setLocationRelativeTo(null);
         if (con != null) {
-            System.out.println(" Conectado correctamente a MySQL!");
+
+                  log.info("🎉 Conectado correctamente a MySQL!");
         } else {
-            System.out.println(" No se pudo conectar a la base de datos.");
+            log.error("🚫 No se pudo conectar a la base de datos.");
+
         }
     }
 
     private void panelPrincipal() {
         mostrar(new Inicio());
+        log.error("🚫 No se pudo conectar a la base de datos.");
     }
 
     public void mostrar(JPanel j) {
+        log.debug("Cambiando panel a: {}", j.getClass().getSimpleName());
         j.setSize(750, 600);
         j.setLocation(0, 0);
         Contenido.removeAll();
@@ -196,18 +201,25 @@ public class Dashboar extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Dashboar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                // Mover las propiedades UIManager AQUÍ, antes de crear la ventana
-                UIManager.put("Button.arc", 999);
-                UIManager.put("Component.arc", 999);
-                UIManager.put("ProgressBar.arc", 999);
-                UIManager.put("TextComponent.arc", 999);
-
-                new Dashboar().setVisible(true);
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
             }
+        } catch (Exception ex) {
+            log.error("Error al configurar el LookAndFeel", ex);
+        }
+
+        java.awt.EventQueue.invokeLater(() -> {
+            UIManager.put("Button.arc", 999);
+            UIManager.put("Component.arc", 999);
+            UIManager.put("ProgressBar.arc", 999);
+            UIManager.put("TextComponent.arc", 999);
+
+            log.info("Iniciando aplicación...");
+            new Dashboar().setVisible(true);
         });
     }
 
